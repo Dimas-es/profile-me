@@ -9,6 +9,10 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  output: 'export',
+  trailingSlash: true,
+  basePath: process.env.NODE_ENV === 'production' ? '/profile-me' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/nama-repository-anda/' : '',
 }
 
 export default nextConfig
