@@ -7,7 +7,11 @@ import { Input } from "@/components/ui/input"
 import Image from "next/image"
 import Link from "next/link"
 
-export function ProjectDetail() {
+interface ProjectDetailProps {
+  projectId: string
+}
+
+export function ProjectDetail({ projectId }: ProjectDetailProps) {
   const teamMembers = [
     { name: "Gia Cheng", role: "Visual Designer", avatar: "GC" },
     { name: "Ahmad Usama", role: "Computer Science Student", avatar: "AU" },
