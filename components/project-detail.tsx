@@ -64,7 +64,7 @@ export function ProjectDetail() {
           </div>
 
           <div className="space-y-4">
-            <div className="aspect-video relative rounded-lg overflow-hidden">
+            <div className="aspect-video relative rounded-none overflow-hidden">
               <Image
                 src="/placeholder.svg?height=400&width=600"
                 alt="First Assist App Interface"
@@ -72,7 +72,7 @@ export function ProjectDetail() {
                 className="object-cover"
               />
             </div>
-            <div className="aspect-video relative rounded-lg overflow-hidden">
+            <div className="aspect-video relative rounded-none overflow-hidden">
               <Image
                 src="/placeholder.svg?height=400&width=600"
                 alt="First Assist App Mobile View"

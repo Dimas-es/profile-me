@@ -9,35 +9,39 @@ interface UnifiedHeaderProps {
 
 export function UnifiedHeader({ activeTab }: UnifiedHeaderProps) {
   const tabs = [
-    { id: "profile", label: "Profile", href: "/profile" },
-    { id: "projects", label: "Projects", href: "/" },
+    { id: "profile", label: "Profile", href: "/" },
+    { id: "projects", label: "Projects", href: "/projects" },
     { id: "activity", label: "Activity", href: "/activity" },
     { id: "connections", label: "Connections", href: "/connections" },
   ]
 
   return (
-    <div className="bg-white rounded-lg shadow-sm">
+    <div className="bg-white rounded-none shadow-sm overflow-hidden">
+      {/* Background Image Section */}
+      <div className="relative h-44">
+        <div className="absolute left-0 top-0 w-full h-full bg-gray-300" style={{backgroundImage: 'url(/bg-placeholder.jpg)', backgroundSize: 'cover', backgroundPosition: 'center'}} />
+      </div>
       {/* Profile Header Section */}
-      <div className="p-8">
-        <div className="flex items-start gap-6">
-          <Avatar className="w-24 h-24 border-4 border-white rounded-full shadow-lg">
-            <AvatarImage src="/placeholder.svg?height=96&width=96" alt="Sophia Liu" />
+      <div className="relative px-24 pb-8 pt-0 flex items-start gap-6">
+        {/* Avatar Overlap */}
+        <div className="absolute" style={{top: '-40px', left: '50px'}}>
+          <Avatar className="w-40 h-40 border-4 border-white rounded-full shadow-lg bg-white">
+            <AvatarImage src="/placeholder.svg?height=160&width=160" alt="Sophia Liu" />
             <AvatarFallback>SL</AvatarFallback>
           </Avatar>
-          <div className="flex-1">
-            <h1 className="text-3xl font-bold text-gray-900">Sophia Liu</h1>
-            <p className="text-gray-600 mt-2 text-lg">Designer & Photography in San Francisco Bay Area</p>
-            <p className="text-gray-500 text-base mt-1">Self-Employed • Cal Poly San Luis Obispo</p>
-          </div>
-          <div className="flex gap-3">
-            <Button className="bg-blue-600 hover:bg-blue-700 rounded-full px-6">Message</Button>
-            <Button variant="outline" className="rounded-full px-6">
-              More...
-            </Button>
-          </div>
+        </div>
+        <div className="flex-1 pl-40 pt-8">
+          <h1 className="text-3xl font-bold text-gray-900">Sophia Liu</h1>
+          <p className="text-gray-600 mt-2 text-lg">Designer & Photography in San Francisco Bay Area</p>
+          <p className="text-gray-500 text-base mt-1">Self-Employed • Cal Poly San Luis Obispo</p>
+        </div>
+        <div className="flex gap-3 pt-8">
+          <Button className="bg-blue-600 hover:bg-blue-700 rounded-none px-6">Message</Button>
+          <Button variant="outline" className="rounded-none px-6">
+            More...
+          </Button>
         </div>
       </div>
-
       {/* Navigation Tabs Section */}
       <div className="border-t">
         <nav className="flex px-8">

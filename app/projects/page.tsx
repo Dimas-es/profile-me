@@ -1,12 +1,12 @@
-import { ProfileContent } from "@/components/profile-content"
+import { ProjectsGrid } from "@/components/projects-grid"
 import { MainLayout } from "@/components/layout/main-layout"
 
-export default function HomePage() {
+export default function ProjectsPage() {
   return (
-    <MainLayout activeTab="profile">
+    <MainLayout activeTab="projects">
       <div className="bg-white rounded-none shadow-sm p-6">
-        <ProfileContent />
+        <ProjectsGrid />
       </div>
     </MainLayout>
   )
-}
+} 

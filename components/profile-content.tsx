@@ -48,7 +48,7 @@ export function ProfileContent() {
                 src="/placeholder.svg?height=200&width=200"
                 alt={project.title}
                 fill
-                className="object-cover rounded-t-lg"
+                className="object-cover rounded-t-none"
               />
             </div>
             <CardContent className="p-4">
@@ -86,7 +86,7 @@ export function ProfileContent() {
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="flex gap-4">
-            <div className="w-12 h-12 bg-black rounded flex items-center justify-center text-white font-bold">AC</div>
+            <div className="w-12 h-12 bg-black rounded-none flex items-center justify-center text-white font-bold">AC</div>
             <div className="flex-1">
               <h3 className="font-semibold">Designer and Photographer</h3>
               <p className="text-gray-600">Ashley Choe</p>
@@ -99,7 +99,7 @@ export function ProfileContent() {
           </div>
 
           <div className="flex gap-4">
-            <div className="w-12 h-12 bg-gray-200 rounded flex items-center justify-center">
+            <div className="w-12 h-12 bg-gray-200 rounded-none flex items-center justify-center">
               <span className="text-lg">📷</span>
             </div>
             <div className="flex-1">
