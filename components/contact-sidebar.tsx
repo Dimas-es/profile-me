@@ -1,4 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Mail, Instagram, Twitter, MessageSquare, DribbbleIcon as Behance } from "lucide-react"
 
@@ -7,48 +6,44 @@ export function ContactSidebar() {
 
   return (
     <div className="space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-lg">Contact / More Profiles</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          <div className="flex items-center gap-2 text-sm">
+      {/* Contact Section */}
+      <div className="bg-white rounded-lg shadow-sm p-6">
+        <h2 className="text-lg font-semibold mb-4 text-gray-900">Contact / More Profiles</h2>
+        <div className="space-y-3">
+          <div className="flex items-center gap-3 text-sm text-gray-600">
             <Mail className="w-4 h-4 text-gray-500" />
-            <span>lu.sophia@gmail.com</span>
+            <span>liu.sophiaa@gmail.com</span>
           </div>
-          <div className="flex items-center gap-2 text-sm">
+          <div className="flex items-center gap-3 text-sm text-gray-600">
             <Instagram className="w-4 h-4 text-gray-500" />
             <span>@hastalasophia</span>
           </div>
-          <div className="flex items-center gap-2 text-sm">
+          <div className="flex items-center gap-3 text-sm text-gray-600">
             <Twitter className="w-4 h-4 text-gray-500" />
             <span>@hastalasophia</span>
           </div>
-          <div className="flex items-center gap-2 text-sm">
+          <div className="flex items-center gap-3 text-sm text-gray-600">
             <MessageSquare className="w-4 h-4 text-gray-500" />
             <span>@hastalasophia</span>
           </div>
-          <div className="flex items-center gap-2 text-sm">
+          <div className="flex items-center gap-3 text-sm text-gray-600">
             <Behance className="w-4 h-4 text-gray-500" />
             <span>@studioscphy</span>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-lg">Skills</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap gap-2">
-            {skills.map((skill) => (
-              <Badge key={skill} variant="outline" className="text-sm">
-                {skill}
-              </Badge>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+      {/* Skills Section */}
+      <div className="bg-white rounded-lg shadow-sm p-6">
+        <h2 className="text-lg font-semibold mb-4 text-gray-900">Skills</h2>
+        <div className="flex flex-wrap gap-2">
+          {skills.map((skill) => (
+            <Badge key={skill} variant="outline" className="text-sm">
+              {skill}
+            </Badge>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

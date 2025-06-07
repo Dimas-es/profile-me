@@ -55,7 +55,7 @@ export function ProjectsGrid() {
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-semibold">{"Sophia's Projects"}</h2>
+        <h2 className="text-2xl font-bold text-gray-900">{"Sophia's Projects"}</h2>
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
           <Input placeholder="Search" className="pl-10 w-64" />
@@ -64,11 +64,11 @@ export function ProjectsGrid() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((project) => (
-          <Card key={project.id} className="overflow-hidden">
+          <Card key={project.id} className="overflow-hidden hover:shadow-lg transition-shadow">
             <div className="aspect-video relative">
               <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
             </div>
-            <CardContent className="p-4">
+            <CardContent className="p-5">
               <Link href={`/project/${project.id}`}>
                 <h3 className="font-semibold text-lg hover:text-blue-600 transition-colors">{project.title}</h3>
               </Link>
@@ -87,12 +87,14 @@ export function ProjectsGrid() {
       </div>
 
       <div className="text-center">
-        <Button variant="outline">Visit Website</Button>
+        <Button variant="outline" className="rounded-full">
+          Visit Website
+        </Button>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-6">
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-semibold">Team Projects</h2>
+          <h2 className="text-2xl font-bold text-gray-900">Team Projects</h2>
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
             <Input placeholder="Search" className="pl-10 w-64" />
@@ -101,11 +103,11 @@ export function ProjectsGrid() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {teamProjects.map((project) => (
-            <Card key={project.id} className="overflow-hidden">
+            <Card key={project.id} className="overflow-hidden hover:shadow-lg transition-shadow">
               <div className="aspect-video relative">
                 <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
               </div>
-              <CardContent className="p-4">
+              <CardContent className="p-5">
                 <h3 className="font-semibold text-lg">{project.title}</h3>
                 <p className="text-blue-600 text-sm font-medium mt-1">Role: {project.role}</p>
                 <p className="text-gray-600 text-sm mt-2">{project.description}</p>
