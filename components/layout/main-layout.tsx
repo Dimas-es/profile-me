@@ -65,4 +65,4 @@ export function MainLayout({ children, activeTab }: MainLayoutProps) {
       </div>
     </div>
   )
-} 
+}

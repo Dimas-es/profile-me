@@ -14,4 +14,4 @@ export function SkillsSidebar() {
         </div>
       </div>
   )
-} 
+}

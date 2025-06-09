@@ -10,4 +10,4 @@ export function PageContainer({ children }: PageContainerProps) {
       {children}
     </div>
   )
-} 
+}

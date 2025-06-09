@@ -1,9 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
-  basePath: '/profile-me',
-  assetPrefix: '/profile-me/',
   eslint: {
     ignoreDuringBuilds: true,
   },
