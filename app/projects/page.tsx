@@ -1,13 +1,24 @@
-import { ProjectsGrid } from "@/components/projects-grid"
-import { MainLayout } from "@/components/layout/main-layout"
-import { PageContainer } from "@/components/page-container"
+/**
+ * @fileoverview Halaman daftar proyek
+ * @author Tim Pengembang
+ */
 
+import { GridProyek } from "@/components/proyek/grid-proyek"
+import { LayoutUtama } from "@/components/layout/layout-utama"
+import { KontainerHalaman } from "@/components/kontainer-halaman"
+
+/**
+ * Halaman yang menampilkan daftar proyek
+ *
+ * @component
+ * @returns {JSX.Element} Halaman proyek
+ */
 export default function ProjectsPage() {
   return (
-    <MainLayout activeTab="projects">
-      <PageContainer>
-        <ProjectsGrid />
-      </PageContainer>
-    </MainLayout>
+    <LayoutUtama activeTab="projects">
+      <KontainerHalaman>
+        <GridProyek />
+      </KontainerHalaman>
+    </LayoutUtama>
   )
 }

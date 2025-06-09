@@ -1,13 +1,24 @@
-import { MainLayout } from "@/components/layout/main-layout"
-import { PageContainer } from "@/components/page-container"
+/**
+ * @fileoverview Halaman koneksi pengguna
+ * @author Tim Pengembang
+ */
 
+import { LayoutUtama } from "@/components/layout/layout-utama"
+import { KontainerHalaman } from "@/components/kontainer-halaman"
+
+/**
+ * Halaman yang menampilkan koneksi pengguna
+ *
+ * @component
+ * @returns {JSX.Element} Halaman koneksi
+ */
 export default function ConnectionsPage() {
   return (
-    <MainLayout activeTab="connections">
-      <PageContainer>
-        <h1 className="text-2xl font-bold mb-4">Connections</h1>
-        <p className="text-gray-600">Your connections will appear here.</p>
-      </PageContainer>
-    </MainLayout>
+    <LayoutUtama activeTab="connections">
+      <KontainerHalaman>
+        <h1 className="text-2xl font-bold mb-4">Koneksi</h1>
+        <p className="text-gray-600">Koneksi Anda akan muncul di sini.</p>
+      </KontainerHalaman>
+    </LayoutUtama>
   )
 }
