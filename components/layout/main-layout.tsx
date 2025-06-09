@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-import { UnifiedHeader } from "@/components/unified-header"
 import { Input } from "@/components/ui/input"
 import { ContactSidebar } from "@/components/contact-sidebar"
 import { SkillsSidebar } from "@/components/skills-sidebar"
@@ -12,6 +11,7 @@ import { Menu } from "lucide-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { ProfileHeader } from "@/components/ProfileHeader"
 
 interface MainLayoutProps {
   children: React.ReactNode
@@ -82,7 +82,7 @@ export function MainLayout({ children, activeTab }: MainLayoutProps) {
       {/* Container for header */}
       <div className="w-full px-4 py-6">
         <div className="max-w-6xl mx-auto">
-          <UnifiedHeader activeTab={activeTab} />
+          <ProfileHeader activeTab={activeTab} />
         </div>
       </div>
 

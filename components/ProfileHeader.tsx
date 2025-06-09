@@ -3,11 +3,11 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 
-interface UnifiedHeaderProps {
+interface ProfileHeaderProps {
   activeTab: string
 }
 
-export function UnifiedHeader({ activeTab }: UnifiedHeaderProps) {
+export function ProfileHeader({ activeTab }: ProfileHeaderProps) {
   const tabs = [
     { id: "profile", label: "Profile", href: "/" },
     { id: "projects", label: "Projects", href: "/projects" },
