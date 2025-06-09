@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation"
 import { Menu } from "lucide-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
 import type { MainLayoutProps } from "@/types/komponen"
 
 /**
@@ -63,6 +63,7 @@ export function LayoutUtama({ children, activeTab }: MainLayoutProps) {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[80%] sm:w-[385px]">
+                <SheetTitle className="sr-only">Menu Navigasi</SheetTitle>
                 <div className="py-6 space-y-6">
                   <div className="px-4">
                     <Input

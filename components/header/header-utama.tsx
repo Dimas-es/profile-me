@@ -48,7 +48,7 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
 
         {/* Info profil - Tengah di mobile */}
         <div className="flex-1 text-center sm:text-left sm:pl-40 pt-0 sm:pt-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Sophia Liu</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Dimas Adijaya</h1>
           <p className="text-gray-600 mt-1 sm:mt-2 text-base sm:text-lg">
             Designer & Photography in San Francisco Bay Area
           </p>
