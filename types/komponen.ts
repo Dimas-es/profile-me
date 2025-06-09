@@ -105,3 +105,22 @@ export interface TabNavigasi {
   label: string
   href: string
 }
+
+/**
+ * Struktur data untuk koneksi mutual
+ * @interface KoneksiMutual
+ * @property {number} id - ID unik koneksi
+ * @property {string} name - Nama koneksi
+ * @property {string} headline - Headline/jabatan koneksi
+ * @property {string} company - Perusahaan koneksi
+ * @property {string} avatar - Inisial untuk avatar
+ * @property {number} mutualConnections - Jumlah koneksi mutual
+ */
+export interface KoneksiMutual {
+  id: number
+  name: string
+  headline: string
+  company: string
+  avatar: string
+  mutualConnections: number
+}
