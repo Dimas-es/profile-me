@@ -40,13 +40,13 @@ export function ProjectDetail({ projectId }: ProjectDetailProps) {
     <div className="space-y-8">
       <div className="flex items-center gap-2 text-gray-600">
         <ChevronLeft className="w-4 h-4" />
-        <Link href="/" className="text-sm hover:text-blue-600">
+        <Link href="/projects" className="text-sm hover:text-blue-600">
           Back to Project List
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-6">
+      <div className="grid grid-cols-1 gap-8">
+        <div className="space-y-6">
           <div>
             <h1 className="text-2xl font-bold mb-2">First Assist: Award Winning Public Safety App</h1>
             <p className="text-blue-600 font-medium">UI Design, UX Design</p>
@@ -105,21 +105,6 @@ export function ProjectDetail({ projectId }: ProjectDetailProps) {
               </div>
               <div className="mt-6">
                 <Button variant="outline">Learn More</Button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div className="space-y-6">
-          <Card>
-            <CardContent className="p-6">
-              <h3 className="font-semibold mb-4">Skills Demonstrated</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.map((skill) => (
-                  <Badge key={skill} variant="outline" className="text-sm">
-                    {skill}
-                  </Badge>
-                ))}
               </div>
             </CardContent>
           </Card>

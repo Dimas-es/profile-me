@@ -15,7 +15,7 @@ interface MainLayoutProps {
 
 export function MainLayout({ children, activeTab }: MainLayoutProps) {
   const pathname = usePathname()
-  const showSkills = pathname === "/projects" || pathname.startsWith("/project/")
+  const showSkills = pathname.startsWith("/projects") || pathname.startsWith("/project/")
 
   return (
     <div className="min-h-screen bg-gray-100">
