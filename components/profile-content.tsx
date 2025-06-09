@@ -40,7 +40,7 @@ export function ProfileContent() {
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
         {projects.map((project, index) => (
           <Card key={index}>
             <div className="aspect-square relative">
@@ -51,8 +51,8 @@ export function ProfileContent() {
                 className="object-cover rounded-t-none"
               />
             </div>
-            <CardContent className="p-4">
-              <h3 className="font-medium text-sm">{project.title}</h3>
+            <CardContent className="p-3 sm:p-4">
+              <h3 className="font-medium text-xs sm:text-sm">{project.title}</h3>
               <p className="text-blue-600 text-xs mt-1">{project.category}</p>
             </CardContent>
           </Card>
@@ -84,29 +84,33 @@ export function ProfileContent() {
         <CardHeader>
           <CardTitle>Experience</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="flex gap-4">
-            <div className="w-12 h-12 bg-black rounded-none flex items-center justify-center text-white font-bold">AC</div>
+        <CardContent className="space-y-4 sm:space-y-6">
+          <div className="flex gap-3 sm:gap-4">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-black rounded-none flex items-center justify-center text-white font-bold text-sm sm:text-base">
+              AC
+            </div>
             <div className="flex-1">
-              <h3 className="font-semibold">Designer and Photographer</h3>
-              <p className="text-gray-600">Ashley Choe</p>
-              <p className="text-gray-500 text-sm">Dec 2017 - Present</p>
-              <p className="text-gray-500 text-sm">San Francisco Bay Area</p>
-              <p className="text-gray-600 text-sm mt-2">
+              <h3 className="font-semibold text-sm sm:text-base">Designer and Photographer</h3>
+              <p className="text-gray-600 text-xs sm:text-sm">Ashley Choe</p>
+              <p className="text-gray-500 text-xs sm:text-sm">Dec 2017 - Present</p>
+              <p className="text-gray-500 text-xs sm:text-sm">San Francisco Bay Area</p>
+              <p className="text-gray-600 text-xs sm:text-sm mt-1 sm:mt-2">
                 Create digital content and develop brand vision in a fast-growing consumer electronics startup.
               </p>
             </div>
           </div>
 
-          <div className="flex gap-4">
-            <div className="w-12 h-12 bg-gray-200 rounded-none flex items-center justify-center">
-              <span className="text-lg">📷</span>
+          <div className="flex gap-3 sm:gap-4">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-200 rounded-none flex items-center justify-center">
+              <span className="text-base sm:text-lg">📷</span>
             </div>
             <div className="flex-1">
-              <h3 className="font-semibold">Designer & Photographer</h3>
-              <p className="text-gray-600">Owner</p>
-              <p className="text-gray-500 text-sm">March 2012 - Present</p>
-              <p className="text-gray-600 text-sm mt-2">Freelance photographer, designer, and illustrator.</p>
+              <h3 className="font-semibold text-sm sm:text-base">Designer & Photographer</h3>
+              <p className="text-gray-600 text-xs sm:text-sm">Owner</p>
+              <p className="text-gray-500 text-xs sm:text-sm">March 2012 - Present</p>
+              <p className="text-gray-600 text-xs sm:text-sm mt-1 sm:mt-2">
+                Freelance photographer, designer, and illustrator.
+              </p>
             </div>
           </div>
         </CardContent>
