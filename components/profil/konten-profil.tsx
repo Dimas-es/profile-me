@@ -1,120 +1,224 @@
 /**
- * @fileoverview Komponen konten profil untuk menampilkan informasi profil pengguna
+ * @fileoverview Enhanced profile content component with Supabase-inspired design
  * @author Tim Pengembang
  */
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { ExternalLink, Github, Linkedin, Mail, MapPin, Calendar } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 import { getSkills, getProfileProjects } from "@/utils/data-provider"
 
 /**
- * Komponen yang menampilkan konten profil pengguna
+ * Enhanced profile content component with modern styling
  *
  * @component
- * @returns {JSX.Element} Komponen konten profil
- *
- * @example
- * ```tsx
- * <KontenProfil />
- * ```
+ * @returns {JSX.Element} Enhanced profile content
  */
 export function KontenProfil() {
   const skills = getSkills()
   const projects = getProfileProjects()
 
-  return (
-    <div className="space-y-8">
-      <Card>
-        <CardHeader>
-          <CardTitle>Ringkasan</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-gray-600 mb-4">
-            Berpikiran seni, visioner kreatif, fokus pada desain, pembuat konten digital yang bersemangat tentang
-            desain, fotografi, storytelling, kewirausahaan, branding, pemasaran, teknologi.
-          </p>
-          <Button variant="outline">Kunjungi Website</Button>
-        </CardContent>
-      </Card>
+  const profileStats = [
+    { label: "Years Experience", value: "5+", color: "text-supabase-green-light" },
+    { label: "Projects Completed", value: "50+", color: "text-accent-purple" },
+    { label: "Happy Clients", value: "20+", color: "text-accent-blue" },
+    { label: "Technologies", value: "15+", color: "text-success" },
+  ]
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-        {projects.map((project, index) => (
-          <Card key={index}>
-            <div className="aspect-square relative">
-              <Image
-                src="/placeholder.svg?height=200&width=200"
-                alt={project.title}
-                fill
-                className="object-cover rounded-t-none"
-              />
+  const contactInfo = [
+    { icon: Mail, label: "Email", value: "dimas@example.com", href: "mailto:dimas@example.com" },
+    { icon: MapPin, label: "Location", value: "San Francisco, CA", href: "#" },
+    { icon: Calendar, label: "Available", value: "Open to opportunities", href: "#" },
+  ]
+
+  const socialLinks = [
+    { icon: Github, href: "https://github.com", label: "GitHub", color: "hover:text-text-primary" },
+    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn", color: "hover:text-accent-blue" },
+    { icon: ExternalLink, href: "https://portfolio.com", label: "Portfolio", color: "hover:text-supabase-green-light" },
+  ]
+
+  return (
+    <div className="space-y-8 animate-fade-in-scale">
+      {/* Enhanced Profile Header */}
+      <div className="card-highlight rounded-xl p-8 hover-lift">
+        <div className="relative">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 bg-gradient-to-r from-supabase-green-light/5 via-accent-purple/5 to-accent-blue/5 rounded-xl" />
+
+          <div className="relative flex flex-col lg:flex-row items-center lg:items-start gap-8">
+            {/* Profile Image */}
+            <div className="relative group">
+              <div className="w-32 h-32 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-glow-green group-hover:scale-105 transition-transform duration-300">
+                <span className="text-4xl font-bold text-bg-main">DA</span>
+              </div>
+              <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-supabase-green-light rounded-full border-4 border-bg-component flex items-center justify-center">
+                <div className="w-3 h-3 bg-bg-main rounded-full animate-pulse" />
+              </div>
             </div>
-            <CardContent className="p-3 sm:p-4">
-              <h3 className="font-medium text-xs sm:text-sm">{project.title}</h3>
-              <p className="text-blue-600 text-xs mt-1">{project.category}</p>
-            </CardContent>
-          </Card>
+
+            {/* Profile Info */}
+            <div className="flex-1 text-center lg:text-left space-y-4">
+              <div>
+                <h1 className="text-3xl lg:text-4xl font-bold gradient-text-primary mb-2">Dimas Adijaya</h1>
+                <p className="text-xl text-text-primary font-medium mb-2">Full Stack Developer & UI/UX Designer</p>
+                <p className="text-text-secondary leading-relaxed max-w-2xl">
+                  Passionate about creating scalable applications and beautiful user experiences. Specialized in modern
+                  web technologies with a focus on performance and accessibility.
+                </p>
+              </div>
+
+              {/* Contact Info */}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+                {contactInfo.map((item, index) => (
+                  <div key={index} className="flex items-center gap-2 text-sm text-text-secondary">
+                    <item.icon className="w-4 h-4 text-supabase-green-light" />
+                    <span>{item.value}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Social Links */}
+              <div className="flex justify-center lg:justify-start gap-4">
+                {socialLinks.map((social, index) => (
+                  <Link
+                    key={index}
+                    href={social.href}
+                    className={`w-10 h-10 bg-bg-secondary border border-border-primary rounded-lg flex items-center justify-center text-text-secondary ${social.color} transition-all duration-300 hover:scale-110 hover:border-current hover:shadow-glow-green`}
+                    aria-label={social.label}
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col gap-3">
+              <Button className="btn-primary">
+                <Mail className="w-4 h-4 mr-2" />
+                Contact Me
+              </Button>
+              <Button className="btn-outline">
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Download CV
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Stats Grid */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {profileStats.map((stat, index) => (
+          <div
+            key={index}
+            className="card-primary text-center hover-lift"
+            style={{ animationDelay: `${index * 0.1}s` }}
+          >
+            <div className={`text-2xl font-bold ${stat.color} mb-1`}>{stat.value}</div>
+            <div className="text-text-secondary text-sm">{stat.label}</div>
+          </div>
         ))}
       </div>
 
-      <div className="text-center">
-        <Button variant="link" className="text-blue-600">
-          Lihat semua proyek
-        </Button>
+      {/* About Summary */}
+      <div className="card-primary hover-lift">
+        <CardHeader>
+          <CardTitle className="text-text-primary flex items-center gap-2">
+            <div className="w-2 h-6 bg-gradient-primary rounded-full" />
+            About Me
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <p className="text-text-primary leading-relaxed">
+            Creative and detail-oriented Full Stack Developer with 5+ years of experience building scalable web
+            applications. Passionate about clean code, user experience, and staying current with emerging technologies.
+          </p>
+          <p className="text-text-primary leading-relaxed">
+            I specialize in React, Next.js, Node.js, and modern database technologies. When I'm not coding, I enjoy
+            contributing to open source projects and mentoring junior developers.
+          </p>
+          <div className="flex flex-wrap gap-3 pt-4">
+            <Button className="btn-secondary">
+              <ExternalLink className="w-4 h-4 mr-2" />
+              View Full Resume
+            </Button>
+            <Button className="btn-outline">
+              <Github className="w-4 h-4 mr-2" />
+              GitHub Profile
+            </Button>
+          </div>
+        </CardContent>
       </div>
 
-      <Card>
+      {/* Featured Projects */}
+      <div className="card-primary hover-lift">
         <CardHeader>
-          <CardTitle>Keahlian</CardTitle>
+          <CardTitle className="text-text-primary flex items-center gap-2">
+            <div className="w-2 h-6 bg-gradient-secondary rounded-full" />
+            Featured Projects
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project, index) => (
+              <div key={index} className="group">
+                <div className="aspect-video relative bg-bg-secondary rounded-lg overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-300">
+                  <Image
+                    src="/placeholder.svg?height=200&width=300"
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-main/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Button className="btn-primary w-full">View Project</Button>
+                  </div>
+                </div>
+                <h3 className="font-semibold text-text-primary mb-1 group-hover:text-supabase-green-light transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-supabase-green-light text-sm font-medium mb-2">{project.category}</p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Button className="btn-outline">
+              <ExternalLink className="w-4 h-4 mr-2" />
+              View All Projects
+            </Button>
+          </div>
+        </CardContent>
+      </div>
+
+      {/* Skills Section */}
+      <div className="card-primary hover-lift">
+        <CardHeader>
+          <CardTitle className="text-text-primary flex items-center gap-2">
+            <div className="w-2 h-6 bg-gradient-to-b from-accent-blue to-success rounded-full" />
+            Technical Skills
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2">
-            {skills.map((skill) => (
-              <Badge key={skill} variant="outline" className="text-sm">
+            {skills.map((skill, index) => (
+              <Badge
+                key={skill}
+                className="bg-bg-secondary text-text-primary hover:bg-border-secondary transition-colors border border-border-primary hover:border-supabase-green-light"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
                 {skill}
               </Badge>
             ))}
           </div>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Pengalaman</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4 sm:space-y-6">
-          <div className="flex gap-3 sm:gap-4">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-black rounded-none flex items-center justify-center text-white font-bold text-sm sm:text-base">
-              AC
-            </div>
-            <div className="flex-1">
-              <h3 className="font-semibold text-sm sm:text-base">Desainer dan Fotografer</h3>
-              <p className="text-gray-600 text-xs sm:text-sm">Ashley Choe</p>
-              <p className="text-gray-500 text-xs sm:text-sm">Des 2017 - Sekarang</p>
-              <p className="text-gray-500 text-xs sm:text-sm">San Francisco Bay Area</p>
-              <p className="text-gray-600 text-xs sm:text-sm mt-1 sm:mt-2">
-                Membuat konten digital dan mengembangkan visi merek dalam startup elektronik konsumen yang berkembang
-                pesat.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex gap-3 sm:gap-4">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-200 rounded-none flex items-center justify-center">
-              <span className="text-base sm:text-lg">📷</span>
-            </div>
-            <div className="flex-1">
-              <h3 className="font-semibold text-sm sm:text-base">Desainer & Fotografer</h3>
-              <p className="text-gray-600 text-xs sm:text-sm">Pemilik</p>
-              <p className="text-gray-500 text-xs sm:text-sm">Maret 2012 - Sekarang</p>
-              <p className="text-gray-600 text-xs sm:text-sm mt-1 sm:mt-2">
-                Fotografer, desainer, dan ilustrator freelance.
-              </p>
-            </div>
+          <div className="mt-6 text-center">
+            <Button className="btn-secondary">View Detailed Skills</Button>
           </div>
         </CardContent>
-      </Card>
+      </div>
     </div>
   )
 }

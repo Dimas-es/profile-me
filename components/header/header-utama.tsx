@@ -1,5 +1,5 @@
 /**
- * @fileoverview Komponen header utama dengan avatar dan navigasi
+ * @fileoverview Enhanced header component with Supabase-inspired design
  * @author Tim Pengembang
  */
 
@@ -11,76 +11,100 @@ import type { HeaderUtamaProps } from "@/types/komponen"
 import { getNavigationTabs } from "@/utils/data-provider"
 
 /**
- * Komponen header utama yang menampilkan profil dan navigasi
+ * Enhanced header component with modern Supabase-inspired styling
  *
  * @component
- * @param {HeaderUtamaProps} props - Properti komponen
- * @param {string} props.activeTab - Tab yang sedang aktif
- * @returns {JSX.Element} Komponen header utama
- *
- * @example
- * ```tsx
- * <HeaderUtama activeTab="profile" />
- * ```
+ * @param {HeaderUtamaProps} props - Component properties
+ * @param {string} props.activeTab - Currently active tab
+ * @returns {JSX.Element} Enhanced header component
  */
 export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
   const tabs = getNavigationTabs()
 
   return (
-    <div className="bg-white rounded-none shadow-sm overflow-hidden">
-      {/* Bagian Gambar Latar Belakang */}
-      <div className="relative h-24 sm:h-44">
+    <div className="card-primary rounded-xl overflow-hidden hover-lift animate-fade-in-scale">
+      {/* Enhanced Background with Supabase-inspired gradients */}
+      <div className="relative h-24 sm:h-44 bg-gradient-to-br from-supabase-green via-accent-purple to-supabase-green-light animate-gradient-x overflow-hidden">
+        {/* Floating decorative elements */}
+        <div className="absolute top-4 right-4 w-8 h-8 bg-text-primary/20 rounded-full animate-float" />
         <div
-          className="absolute left-0 top-0 w-full h-full bg-gray-300"
-          style={{ backgroundImage: "url(/bg-placeholder.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}
+          className="absolute top-8 left-8 w-6 h-6 bg-accent-purple/30 rounded-full animate-float"
+          style={{ animationDelay: "1s" }}
         />
+        <div
+          className="absolute bottom-6 right-12 w-4 h-4 bg-text-primary/25 rounded-full animate-float"
+          style={{ animationDelay: "2s" }}
+        />
+
+        {/* Gradient overlay for depth */}
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-bg-main/10 to-bg-main/20" />
       </div>
 
-      {/* Bagian Header Profil */}
+      {/* Enhanced Profile Section */}
       <div className="relative px-4 sm:px-24 pb-4 sm:pb-8 pt-0 flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-6">
-        {/* Avatar Overlap - Tengah di mobile, rata kiri di desktop */}
+        {/* Avatar with enhanced glow */}
         <div className="sm:absolute mx-auto sm:mx-0" style={{ top: "-40px", left: "50px" }}>
-          <Avatar className="w-24 h-24 sm:w-40 sm:h-40 border-4 border-white rounded-full shadow-lg bg-white">
-            <AvatarImage src="/placeholder.svg?height=160&width=160" alt="Sophia Liu" />
-            <AvatarFallback>SL</AvatarFallback>
-          </Avatar>
+          <div className="relative">
+            <Avatar className="w-24 h-24 sm:w-40 sm:h-40 border-4 border-supabase-green-light rounded-full shadow-glow-green bg-bg-component animate-pulse-glow hover-lift">
+              <AvatarImage src="/placeholder.svg?height=160&width=160" alt="Dimas Adijaya" />
+              <AvatarFallback className="bg-gradient-primary text-bg-main text-2xl font-bold">DA</AvatarFallback>
+            </Avatar>
+            {/* Enhanced status indicator */}
+            <div className="absolute bottom-2 right-2 w-6 h-6 status-online rounded-full border-4 border-bg-component animate-pulse" />
+          </div>
         </div>
 
-        {/* Info profil - Tengah di mobile */}
-        <div className="flex-1 text-center sm:text-left sm:pl-40 pt-0 sm:pt-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Dimas Adijaya</h1>
-          <p className="text-gray-600 mt-1 sm:mt-2 text-base sm:text-lg">
-            Designer & Photography in San Francisco Bay Area
+        {/* Enhanced profile info */}
+        <div className="flex-1 text-center sm:text-left sm:pl-40 pt-0 sm:pt-8 animate-slide-in-up">
+          <h1 className="text-2xl sm:text-3xl font-bold gradient-text-primary mb-2">Dimas Adijaya</h1>
+          <p className="text-text-primary mt-1 sm:mt-2 text-base sm:text-lg font-medium">
+            Creative Designer & Visual Storyteller
           </p>
-          <p className="text-gray-500 text-sm sm:text-base mt-1">Self-Employed • Cal Poly San Luis Obispo</p>
+          <p className="text-text-secondary text-sm sm:text-base mt-1">
+            San Francisco Bay Area • Available for Projects
+          </p>
+
+          {/* Enhanced skill tags */}
+          <div className="flex flex-wrap justify-center sm:justify-start gap-2 mt-3">
+            <span className="px-3 py-1 bg-gradient-primary text-bg-main text-xs font-medium rounded-full shadow-glow-green">
+              UI/UX Designer
+            </span>
+            <span className="px-3 py-1 bg-gradient-secondary text-text-primary text-xs font-medium rounded-full shadow-glow-purple">
+              Photographer
+            </span>
+            <span className="px-3 py-1 bg-accent-blue text-text-primary text-xs font-medium rounded-full shadow-glow-blue">
+              Developer
+            </span>
+          </div>
         </div>
 
-        {/* Tombol aksi */}
-        <div className="flex gap-3 pt-2 sm:pt-8">
-          <Button className="bg-blue-600 hover:bg-blue-700 rounded-none px-4 sm:px-6 py-1 sm:py-2 text-sm sm:text-base">
-            Pesan
-          </Button>
-          <Button variant="outline" className="rounded-none px-4 sm:px-6 py-1 sm:py-2 text-sm sm:text-base">
-            Lainnya...
-          </Button>
+        {/* Enhanced action buttons */}
+        <div className="flex gap-3 pt-2 sm:pt-8 animate-slide-in-up" style={{ animationDelay: "0.2s" }}>
+          <Button className="btn-primary">Let's Connect</Button>
+          <Button className="btn-outline">View Portfolio</Button>
         </div>
       </div>
 
-      {/* Bagian Tab Navigasi - Dapat di-scroll di mobile */}
-      <div className="border-t overflow-x-auto">
+      {/* Enhanced Navigation */}
+      <div className="border-t border-supabase-green-light/20 overflow-x-auto bg-bg-component/50 backdrop-blur-sm">
         <nav className="flex px-2 sm:px-8 min-w-max">
-          {tabs.map((tab) => (
+          {tabs.map((tab, index) => (
             <Link
               key={tab.id}
               href={tab.href}
               className={cn(
-                "px-3 sm:px-6 py-3 sm:py-4 text-sm sm:text-base font-medium border-b-3 transition-colors whitespace-nowrap",
+                "px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base font-medium transition-all duration-300 whitespace-nowrap relative border-b-2",
                 activeTab === tab.id
-                  ? "border-blue-600 text-blue-600"
-                  : "border-transparent text-gray-500 hover:text-gray-700",
+                  ? "border-supabase-green-light text-supabase-green-light"
+                  : "border-transparent text-text-secondary hover:text-supabase-green-light hover:border-supabase-green-light/50",
+                "animate-slide-in-up",
               )}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               {tab.label}
+              {activeTab === tab.id && (
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-primary rounded-full" />
+              )}
             </Link>
           ))}
         </nav>
