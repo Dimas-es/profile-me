@@ -12,13 +12,13 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/s
 import type { MainLayoutProps } from "@/types/komponen"
 
 /**
- * Enhanced layout component with Supabase-inspired design
+ * Professional layout component with refined design and responsive optimization
  *
  * @component
  * @param {MainLayoutProps} props - Component properties
  * @param {React.ReactNode} props.children - Content to display within layout
  * @param {string} props.activeTab - Currently active tab
- * @returns {JSX.Element} Enhanced main layout component
+ * @returns {JSX.Element} Professional main layout component
  */
 export function LayoutUtama({ children, activeTab }: MainLayoutProps) {
   const pathname = usePathname()
@@ -26,113 +26,103 @@ export function LayoutUtama({ children, activeTab }: MainLayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="min-h-screen bg-bg-main relative overflow-hidden">
-      {/* Enhanced floating background elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-supabase-green-light/5 rounded-full blur-3xl animate-float" />
-        <div
-          className="absolute top-40 right-20 w-48 h-48 bg-accent-purple/5 rounded-full blur-3xl animate-float"
-          style={{ animationDelay: "2s" }}
-        />
-        <div
-          className="absolute bottom-20 left-1/3 w-56 h-56 bg-accent-blue/5 rounded-full blur-3xl animate-float"
-          style={{ animationDelay: "4s" }}
-        />
-      </div>
+    <div className="min-h-screen bg-background">
+      {/* Professional Navigation Bar */}
+      <header className="nav-primary">
+        <div className="container-primary">
+          <div className="flex items-center justify-between h-14 md:h-16">
+            {/* Logo and Search */}
+            <div className="flex items-center gap-4 flex-1">
+              <Link href="/" className="shrink-0 focus-ring rounded-lg">
+                <div className="w-8 h-8 md:w-10 md:h-10 bg-action-primary rounded-lg flex items-center justify-center">
+                  <span className="text-text-primary font-bold text-sm md:text-base">P</span>
+                </div>
+              </Link>
 
-      {/* Enhanced Navigation Bar */}
-      <div className="fixed top-0 left-0 right-0 w-full glass-effect border-b border-border-primary py-3 z-50">
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-4 flex-1">
-            <Link href="/" className="shrink-0 hover-lift">
-              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center shadow-glow-green">
-                <span className="text-bg-main font-bold text-sm">P</span>
+              {/* Desktop Search */}
+              <div className="relative max-w-md w-full hidden md:block">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-secondary w-4 h-4" />
+                <Input type="search" placeholder="Search..." className="input-search" aria-label="Search content" />
               </div>
-            </Link>
-            <div className="relative max-w-md w-full hidden sm:block">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-secondary w-4 h-4" />
-              <Input type="search" placeholder="Search..." className="input-primary pl-10 pr-4 py-2 h-10 text-sm" />
             </div>
-          </div>
 
-          {/* Enhanced Mobile Menu */}
-          <div className="block sm:hidden">
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="h-10 w-10 glass-effect hover:bg-supabase-green-light/20 text-text-primary"
-                >
-                  <Menu className="h-5 w-5" />
-                  <span className="sr-only">Open menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[80%] sm:w-[385px] bg-bg-component border-border-primary">
-                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-                <div className="py-6 space-y-6">
-                  <div className="px-4">
-                    <div className="relative">
-                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-secondary w-4 h-4" />
-                      <Input
-                        type="search"
-                        placeholder="Search..."
-                        className="input-primary pl-10 pr-4 py-2 h-10 text-sm"
-                      />
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className="btn-ghost h-10 w-10" aria-label="Open navigation menu">
+                    <Menu className="h-5 w-5" />
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="right" className="w-[85%] sm:w-[400px] bg-surface-primary border-border-primary">
+                  <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+                  <div className="py-6 space-y-6">
+                    {/* Mobile Search */}
+                    <div className="px-4">
+                      <div className="relative">
+                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-secondary w-4 h-4" />
+                        <Input
+                          type="search"
+                          placeholder="Search..."
+                          className="input-search"
+                          aria-label="Search content"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Mobile Sidebar Content */}
+                    <div className="border-t border-border-primary pt-6 space-y-6">
+                      <div className="card-secondary">
+                        <SidebarKontak />
+                      </div>
+                      {showSkills && (
+                        <div className="card-secondary">
+                          <SidebarKeahlian />
+                        </div>
+                      )}
                     </div>
                   </div>
-                  <div className="border-t border-border-primary pt-6">
-                    <SidebarKontak />
-                    {showSkills && (
-                      <div className="mt-6">
-                        <SidebarKeahlian />
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
-        </div>
-      </div>
-
-      {/* Spacer for fixed header */}
-      <div className="h-16"></div>
-
-      {/* Header container */}
-      <div className="w-full px-4 py-6">
-        <div className="max-w-6xl mx-auto">
-          <HeaderUtama activeTab={activeTab} />
-        </div>
-      </div>
-
-      {/* Spacing between header and content */}
-      <div className="h-4 sm:h-8"></div>
-
-      {/* Content container */}
-      <div className="w-full px-4 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-8">
-            {/* Main Content */}
-            <div className="lg:col-span-3 order-2 lg:order-1 space-y-6">{children}</div>
-
-            {/* Enhanced Sidebar */}
-            <div className="lg:col-span-1 space-y-4 sm:space-y-6 hidden lg:block order-1 lg:order-2">
-              <div className="card-primary hover-lift">
-                <SidebarKontak />
-              </div>
-              {showSkills && (
-                <div className="card-highlight hover-lift">
-                  <SidebarKeahlian />
-                </div>
-              )}
+                </SheetContent>
+              </Sheet>
             </div>
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Bottom spacing */}
-      <div className="h-16"></div>
+      {/* Main Content Area */}
+      <main className="pt-6 md:pt-8">
+        {/* Header Section */}
+        <section className="container-primary mb-6 md:mb-8">
+          <HeaderUtama activeTab={activeTab} />
+        </section>
+
+        {/* Content Grid */}
+        <section className="container-primary">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 md:gap-8">
+            {/* Main Content */}
+            <div className="lg:col-span-3 order-2 lg:order-1">
+              <div className="space-y-6 md:space-y-8">{children}</div>
+            </div>
+
+            {/* Desktop Sidebar */}
+            <aside className="lg:col-span-1 order-1 lg:order-2 hidden lg:block">
+              <div className="sticky top-24 space-y-6">
+                <div className="card-primary hover-lift">
+                  <SidebarKontak />
+                </div>
+                {showSkills && (
+                  <div className="card-secondary hover-lift">
+                    <SidebarKeahlian />
+                  </div>
+                )}
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        {/* Bottom Spacing */}
+        <div className="h-16 md:h-20" />
+      </main>
     </div>
   )
 }
