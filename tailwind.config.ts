@@ -65,9 +65,8 @@ const config: Config = {
         "status-info": "hsl(var(--color-status-info))",
       },
       fontFamily: {
-        // Professional Font System
+        // Professional Font System - Using System Fonts
         sans: [
-          "Inter",
           "-apple-system",
           "BlinkMacSystemFont",
           "Segoe UI",
@@ -75,12 +74,13 @@ const config: Config = {
           "Oxygen",
           "Ubuntu",
           "Cantarell",
+          "Fira Sans",
+          "Droid Sans",
+          "Helvetica Neue",
           "sans-serif",
         ],
-        serif: ["Playfair Display", "Georgia", "Times New Roman", "serif"],
-        mono: ["JetBrains Mono", "Fira Code", "Monaco", "Consolas", "monospace"],
-        inter: ["Inter", "sans-serif"],
-        playfair: ["Playfair Display", "serif"],
+        serif: ["Georgia", "Cambria", "Times New Roman", "Times", "serif"],
+        mono: ["Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
       },
       fontSize: {
         // Professional Typography Scale

@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -78,8 +76,7 @@
 
   /* Professional Typography Base */
   html {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-      sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -96,7 +93,7 @@
   /* Professional Typography Hierarchy */
   h1,
   .heading-1 {
-    font-family: "Playfair Display", Georgia, serif;
+    font-family: Georgia, Times, "Times New Roman", serif;
     @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-text-primary;
     line-height: 1.2;
     letter-spacing: -0.025em;
@@ -104,7 +101,7 @@
 
   h2,
   .heading-2 {
-    font-family: "Playfair Display", Georgia, serif;
+    font-family: Georgia, Times, "Times New Roman", serif;
     @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-tight text-text-primary;
     line-height: 1.3;
     letter-spacing: -0.02em;
@@ -112,7 +109,6 @@
 
   h3,
   .heading-3 {
-    font-family: "Inter", sans-serif;
     @apply text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-text-primary;
     line-height: 1.4;
     letter-spacing: -0.015em;
@@ -120,21 +116,18 @@
 
   h4,
   .heading-4 {
-    font-family: "Inter", sans-serif;
     @apply text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-text-primary;
     line-height: 1.4;
   }
 
   h5,
   .heading-5 {
-    font-family: "Inter", sans-serif;
     @apply text-sm sm:text-base md:text-lg font-medium text-text-primary;
     line-height: 1.5;
   }
 
   h6,
   .heading-6 {
-    font-family: "Inter", sans-serif;
     @apply text-xs sm:text-sm md:text-base font-medium text-text-primary uppercase tracking-wider;
     line-height: 1.5;
     letter-spacing: 0.05em;
@@ -142,19 +135,16 @@
 
   p,
   .body-text {
-    font-family: "Inter", sans-serif;
     @apply text-sm sm:text-base leading-relaxed text-text-secondary;
     font-weight: 400;
   }
 
   .body-text-large {
-    font-family: "Inter", sans-serif;
     @apply text-base sm:text-lg leading-relaxed text-text-secondary;
     font-weight: 400;
   }
 
   .body-text-small {
-    font-family: "Inter", sans-serif;
     @apply text-xs sm:text-sm leading-relaxed text-text-secondary;
     font-weight: 400;
   }
@@ -192,8 +182,7 @@
     @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 
            text-sm font-medium rounded-lg transition-all duration-200 ease-in-out
            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-bg-main
-           disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none
-           font-inter;
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none;
   }
 
   .btn-primary {
@@ -273,7 +262,7 @@
   /* === INPUT SYSTEM === */
   .input-base {
     @apply w-full px-3 py-2.5 text-sm bg-bg-secondary border border-border-primary rounded-lg
-           text-text-primary placeholder:text-text-secondary font-inter
+           text-text-primary placeholder:text-text-secondary
            focus:outline-none focus:ring-2 focus:ring-text-accent focus:border-text-accent
            disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200;
   }
@@ -302,19 +291,19 @@
   .nav-item {
     @apply px-3 py-2 text-sm font-medium text-text-secondary hover:text-text-primary
            rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 
-           focus:ring-text-accent focus:ring-offset-2 focus:ring-offset-bg-main font-inter;
+           focus:ring-text-accent focus:ring-offset-2 focus:ring-offset-bg-main;
   }
 
   .nav-item-active {
     @apply px-3 py-2 text-sm font-medium text-text-accent bg-bg-secondary rounded-lg
            focus:outline-none focus:ring-2 focus:ring-text-accent 
-           focus:ring-offset-2 focus:ring-offset-bg-main font-inter;
+           focus:ring-offset-2 focus:ring-offset-bg-main;
   }
 
   /* === BADGE SYSTEM === */
   .badge-base {
     @apply inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-full
-           transition-colors duration-200 font-inter;
+           transition-colors duration-200;
   }
 
   .badge-primary {
