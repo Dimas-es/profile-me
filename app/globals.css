@@ -47,6 +47,14 @@ body {
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --bg-button: 154.9 100% 19.22%;
+    --bg-main: 0 0% 7.06%;
+    --bg-component: 0 0% 9.02%;
+    --text-putih: 0 0% 98.04%;
+    --text-hijau: 153.1 60.17% 52.75%;
+    --bg-button-secound: 0 0% 14.12%;
+    --text-abu: 0 0% 53.73%;
+    --border-border: 0 0% 17.25%;
   }
   .dark {
     --background: 0 0% 3.9%;

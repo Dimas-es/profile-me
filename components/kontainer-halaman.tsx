@@ -16,5 +16,5 @@ import type { KontainerHalamanProps } from "@/types/komponen"
  * ```
  */
 export function KontainerHalaman({ children }: KontainerHalamanProps) {
-  return <div className="bg-white rounded-none shadow-sm p-3 sm:p-6">{children}</div>
+  return <div className="bg-bg-component border-[2px] rounded-md shadow-sm p-3 sm:p-6" style={{ borderColor: 'hsl(0, 0%, 22%)' }}>{children}</div>
 }

@@ -60,12 +60,20 @@ const config: Config = {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
-  			}
+  			},
+            'bg-button': 'hsl(var(--bg-button))',
+            'bg-main': 'hsl(var(--bg-main))',
+            'bg-component': 'hsl(var(--bg-component))',
+            'text-putih': 'hsl(var(--text-putih))',
+            'text-hijau': 'hsl(var(--text-hijau))',
+            'bg-button-secound': 'hsl(var(--bg-button-secound))',
+            'text-abu': 'hsl(var(--text-abu))',
+            'border-border': 'hsl(var(--border-border))'
   		},
   		borderRadius: {
-  			lg: '0',
-  			md: '0',
-  			sm: '0'
+  			lg: '20px',
+  			md: '10px',
+  			sm: '5px'
   		},
   		keyframes: {
   			'accordion-down': {

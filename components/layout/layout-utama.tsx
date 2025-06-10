@@ -34,9 +34,12 @@ export function LayoutUtama({ children, activeTab }: MainLayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-bg-main">
       {/* Navigasi Atas - Lebar Penuh dan Sticky */}
-      <div className="fixed top-0 left-0 right-0 w-full bg-white border-b py-2 z-50">
+      <div 
+        className="fixed top-0 left-0 right-0 w-full bg-bg-main py-2 z-50"
+        style={{ borderBottom: '1.5px solid hsl(0, 0%, 17.25%)' }}
+      >
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between gap-4">
           <div className="flex items-center gap-4 flex-1">
             <Link href="/" className="shrink-0">
@@ -49,7 +52,7 @@ export function LayoutUtama({ children, activeTab }: MainLayoutProps) {
               />
             </Link>
             <div className="relative max-w-md w-full hidden sm:block">
-              <Input type="search" placeholder="Cari" className="bg-gray-100 border-0 pl-4 pr-4 py-1 h-8 text-sm" />
+              <Input type="search" placeholder="Cari" className="bg-bg-component border-[1.5px] pl-4 pr-4 py-1 h-8 text-sm" style={{ borderColor: 'hsl(0, 0%, 22%)' }} />
             </div>
           </div>
 
