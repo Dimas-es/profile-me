@@ -109,8 +109,10 @@ export function LayoutUtama({ children, activeTab }: MainLayoutProps) {
 
             {/* Sidebar - Tersembunyi di mobile (ditampilkan di sheet), 1/4 di desktop */}
             <div className="lg:col-span-1 space-y-4 sm:space-y-8 hidden lg:block order-1 lg:order-2">
-              <SidebarKontak />
-              {showSkills && <SidebarKeahlian />}
+              <div className="sticky top-24">
+                <SidebarKontak />
+                {showSkills && <SidebarKeahlian />}
+              </div>
             </div>
           </div>
         </div>

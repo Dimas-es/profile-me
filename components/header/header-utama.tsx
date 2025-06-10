@@ -39,7 +39,7 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
       {/* Bagian Header Profil */}
       <div className="relative px-4 sm:px-24 pb-4 sm:pb-8 pt-0 flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-6">
         {/* Avatar Overlap - Tengah di mobile, rata kiri di desktop */}
-        <div className="sm:absolute mx-auto sm:mx-0" style={{ top: "-40px", left: "50px" }}>
+        <div className="-mt-12 z-10 sm:mt-0 sm:z-auto sm:absolute mx-auto sm:mx-0" style={{ top: "-40px", left: "50px" }}>
           <Avatar className="w-24 h-24 sm:w-40 sm:h-40 border-4 border-white rounded-full shadow-lg bg-white">
             <AvatarImage src="/placeholder.svg?height=160&width=160" alt="Sophia Liu" />
             <AvatarFallback>SL</AvatarFallback>

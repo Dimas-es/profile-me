@@ -100,11 +100,11 @@ const koneksiMutual: KoneksiMutual[] = [
  */
 export function DaftarKoneksi() {
   return (
-    <div className="bg-white rounded-lg shadow-sm border">
+    <div className="bg-white rounded-lg shadow-sm border w-full">
       {/* Header dengan jumlah koneksi dan search */}
-      <div className="p-6 border-b">
+      <div className="p-4 sm:p-6 border-b">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <h2 className="text-xl font-semibold text-gray-900">50 Mutual Connections</h2>
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-900">50 Mutual Connections</h2>
 
           {/* Search bar */}
           <div className="relative w-full sm:w-80">
@@ -119,15 +119,15 @@ export function DaftarKoneksi() {
       </div>
 
       {/* Grid koneksi */}
-      <div className="p-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="p-4 sm:p-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
           {koneksiMutual.map((koneksi) => (
             <KartuKoneksi key={koneksi.id} koneksi={koneksi} />
           ))}
         </div>
 
         {/* Tombol Show more */}
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-6 sm:mt-8">
           <Button variant="ghost" className="text-blue-600 hover:text-blue-700 hover:bg-blue-50">
             Show more →
           </Button>
