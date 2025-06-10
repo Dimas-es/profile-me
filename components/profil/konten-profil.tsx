@@ -1,5 +1,5 @@
 /**
- * @fileoverview Professional profile content component
+ * @fileoverview Professional profile content with refined typography and design
  * @author Tim Pengembang
  */
 
@@ -12,7 +12,7 @@ import Link from "next/link"
 import { getSkills, getProfileProjects } from "@/utils/data-provider"
 
 /**
- * Professional profile content with refined styling and responsive design
+ * Professional profile content with elegant typography and responsive design
  *
  * @component
  * @returns {JSX.Element} Professional profile content
@@ -35,56 +35,71 @@ export function KontenProfil() {
   ]
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub", color: "hover:text-text-primary" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn", color: "hover:text-status-info" },
-    { icon: ExternalLink, href: "https://portfolio.com", label: "Portfolio", color: "hover:text-text-accent" },
+    {
+      icon: Github,
+      href: "https://github.com",
+      label: "GitHub",
+      color: "hover:text-text-primary hover:border-text-primary",
+    },
+    {
+      icon: Linkedin,
+      href: "https://linkedin.com",
+      label: "LinkedIn",
+      color: "hover:text-status-info hover:border-status-info",
+    },
+    {
+      icon: ExternalLink,
+      href: "https://portfolio.com",
+      label: "Portfolio",
+      color: "hover:text-text-accent hover:border-text-accent",
+    },
   ]
 
   return (
-    <div className="space-y-6 md:space-y-8 animate-fade-in">
+    <div className="space-y-6 sm:space-y-8 lg:space-y-10 animate-fade-in">
       {/* Professional Profile Header */}
       <div className="card-elevated">
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 md:gap-8">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 sm:gap-8 lg:gap-10">
           {/* Professional Avatar */}
           <div className="relative group">
-            <div className="w-24 h-24 md:w-32 md:h-32 bg-action-primary rounded-2xl flex items-center justify-center shadow-professional-lg group-hover:shadow-professional-xl transition-all duration-200">
-              <span className="text-2xl md:text-4xl font-bold text-text-primary">DA</span>
+            <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 bg-action-primary rounded-2xl flex items-center justify-center shadow-professional-lg group-hover:shadow-professional-xl transition-all duration-200">
+              <span className="text-2xl sm:text-4xl lg:text-5xl font-bold text-text-primary font-playfair">DA</span>
             </div>
-            <div className="absolute -bottom-2 -right-2 w-6 h-6 md:w-8 md:h-8 bg-text-accent rounded-full border-4 border-surface-primary flex items-center justify-center">
-              <div className="w-2 h-2 md:w-3 md:h-3 bg-surface-primary rounded-full" />
+            <div className="absolute -bottom-2 -right-2 w-6 h-6 sm:w-8 sm:h-8 bg-text-accent rounded-full border-4 border-bg-component flex items-center justify-center">
+              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-bg-component rounded-full" />
             </div>
           </div>
 
-          {/* Professional Info */}
-          <div className="flex-1 text-center lg:text-left space-y-4">
+          {/* Professional Information */}
+          <div className="flex-1 text-center lg:text-left space-y-4 sm:space-y-6">
             <div>
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-text-primary mb-2">Dimas Adijaya</h1>
-              <p className="text-lg md:text-xl text-text-primary font-medium mb-2">
+              <h1 className="heading-1 mb-2 sm:mb-3">Dimas Adijaya</h1>
+              <p className="text-lg sm:text-xl lg:text-2xl text-text-primary font-medium font-inter mb-2 sm:mb-3">
                 Full Stack Developer & UI/UX Designer
               </p>
-              <p className="text-text-secondary leading-relaxed max-w-2xl">
+              <p className="body-text-large max-w-2xl">
                 Passionate about creating scalable applications and beautiful user experiences. Specialized in modern
                 web technologies with a focus on performance and accessibility.
               </p>
             </div>
 
-            {/* Professional Contact Info */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+            {/* Professional Contact Information */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6">
               {contactInfo.map((item, index) => (
-                <div key={index} className="flex items-center gap-2 text-sm text-text-secondary">
-                  <item.icon className="w-4 h-4 text-text-accent" />
+                <div key={index} className="flex items-center gap-2 body-text">
+                  <item.icon className="w-4 h-4 text-text-accent" aria-hidden="true" />
                   <span>{item.value}</span>
                 </div>
               ))}
             </div>
 
             {/* Professional Social Links */}
-            <div className="flex justify-center lg:justify-start gap-3">
+            <div className="flex justify-center lg:justify-start gap-3 sm:gap-4">
               {socialLinks.map((social, index) => (
                 <Link
                   key={index}
                   href={social.href}
-                  className={`w-10 h-10 md:w-12 md:h-12 bg-surface-secondary border border-border-primary rounded-lg flex items-center justify-center text-text-secondary ${social.color} transition-all duration-200 hover:scale-105 hover:border-current focus-ring`}
+                  className={`w-10 h-10 sm:w-12 sm:h-12 bg-bg-secondary border border-border-primary rounded-lg flex items-center justify-center text-text-secondary ${social.color} transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-text-accent focus:ring-offset-2 focus:ring-offset-bg-main`}
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
@@ -95,11 +110,11 @@ export function KontenProfil() {
 
           {/* Professional Action Buttons */}
           <div className="flex flex-col gap-3">
-            <Button className="btn-primary">
+            <Button className="btn-primary btn-md">
               <Mail className="w-4 h-4 mr-2" />
               Contact Me
             </Button>
-            <Button className="btn-outline">
+            <Button className="btn-outline btn-md">
               <ExternalLink className="w-4 h-4 mr-2" />
               Download CV
             </Button>
@@ -107,7 +122,7 @@ export function KontenProfil() {
         </div>
       </div>
 
-      {/* Professional Stats Grid */}
+      {/* Professional Statistics Grid */}
       <div className="grid-responsive">
         {profileStats.map((stat, index) => (
           <div
@@ -115,9 +130,11 @@ export function KontenProfil() {
             className="card-primary text-center hover-lift animate-scale-in"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
-            <stat.icon className={`w-6 h-6 md:w-8 md:h-8 ${stat.color} mx-auto mb-2`} />
-            <div className={`text-xl md:text-2xl font-bold ${stat.color} mb-1`}>{stat.value}</div>
-            <div className="text-text-secondary text-sm">{stat.label}</div>
+            <stat.icon className={`w-6 h-6 sm:w-8 sm:h-8 ${stat.color} mx-auto mb-3`} aria-hidden="true" />
+            <div className={`text-xl sm:text-2xl lg:text-3xl font-bold ${stat.color} mb-1 font-playfair`}>
+              {stat.value}
+            </div>
+            <div className="body-text-small font-medium">{stat.label}</div>
           </div>
         ))}
       </div>
@@ -125,26 +142,26 @@ export function KontenProfil() {
       {/* Professional About Section */}
       <div className="card-primary hover-lift">
         <CardHeader>
-          <CardTitle className="text-text-primary flex items-center gap-3">
+          <CardTitle className="heading-3 flex items-center gap-3">
             <div className="w-1 h-6 bg-text-accent rounded-full" />
             About Me
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <p className="text-text-primary leading-relaxed">
+        <CardContent className="space-y-4 sm:space-y-6">
+          <p className="body-text-large">
             Creative and detail-oriented Full Stack Developer with 5+ years of experience building scalable web
             applications. Passionate about clean code, user experience, and staying current with emerging technologies.
           </p>
-          <p className="text-text-primary leading-relaxed">
+          <p className="body-text-large">
             I specialize in React, Next.js, Node.js, and modern database technologies. When I'm not coding, I enjoy
             contributing to open source projects and mentoring junior developers.
           </p>
           <div className="flex flex-wrap gap-3 pt-4">
-            <Button className="btn-secondary">
+            <Button className="btn-secondary btn-md">
               <ExternalLink className="w-4 h-4 mr-2" />
               View Full Resume
             </Button>
-            <Button className="btn-outline">
+            <Button className="btn-outline btn-md">
               <Github className="w-4 h-4 mr-2" />
               GitHub Profile
             </Button>
@@ -155,7 +172,7 @@ export function KontenProfil() {
       {/* Professional Projects Section */}
       <div className="card-primary hover-lift">
         <CardHeader>
-          <CardTitle className="text-text-primary flex items-center gap-3">
+          <CardTitle className="heading-3 flex items-center gap-3">
             <div className="w-1 h-6 bg-status-info rounded-full" />
             Featured Projects
           </CardTitle>
@@ -164,27 +181,27 @@ export function KontenProfil() {
           <div className="grid-responsive">
             {projects.map((project, index) => (
               <div key={index} className="group">
-                <div className="aspect-video relative bg-surface-secondary rounded-lg overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-200">
+                <div className="aspect-video relative bg-bg-secondary rounded-lg overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-200">
                   <Image
                     src="/placeholder.svg?height=200&width=300"
-                    alt={project.title}
+                    alt={`${project.title} project preview`}
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-main/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                   <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                    <Button className="btn-primary w-full">View Project</Button>
+                    <Button className="btn-primary btn-sm w-full">View Project</Button>
                   </div>
                 </div>
-                <h3 className="font-semibold text-text-primary mb-1 group-hover:text-text-accent transition-colors">
+                <h3 className="font-semibold text-text-primary mb-1 group-hover:text-text-accent transition-colors font-inter">
                   {project.title}
                 </h3>
-                <p className="text-text-accent text-sm font-medium">{project.category}</p>
+                <p className="text-text-accent text-sm font-medium font-inter">{project.category}</p>
               </div>
             ))}
           </div>
-          <div className="text-center mt-6 md:mt-8">
-            <Button className="btn-outline">
+          <div className="text-center mt-6 sm:mt-8">
+            <Button className="btn-outline btn-md">
               <ExternalLink className="w-4 h-4 mr-2" />
               View All Projects
             </Button>
@@ -195,25 +212,25 @@ export function KontenProfil() {
       {/* Professional Skills Section */}
       <div className="card-primary hover-lift">
         <CardHeader>
-          <CardTitle className="text-text-primary flex items-center gap-3">
+          <CardTitle className="heading-3 flex items-center gap-3">
             <div className="w-1 h-6 bg-status-success rounded-full" />
             Technical Skills
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 sm:gap-3">
             {skills.map((skill, index) => (
               <Badge
                 key={skill}
-                className="badge-secondary hover:bg-surface-tertiary transition-colors"
+                className="badge-secondary hover:bg-bg-secondary transition-colors font-inter"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
                 {skill}
               </Badge>
             ))}
           </div>
-          <div className="mt-6 text-center">
-            <Button className="btn-secondary">View Detailed Skills</Button>
+          <div className="mt-6 sm:mt-8 text-center">
+            <Button className="btn-secondary btn-md">View Detailed Skills</Button>
           </div>
         </CardContent>
       </div>
