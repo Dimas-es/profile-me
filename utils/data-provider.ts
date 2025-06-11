@@ -4,18 +4,22 @@
  */
 
 import type { Proyek, ProyekTim, AnggotaTim, TabNavigasi } from "@/types/komponen"
+import {
+  getNavigationTabs as getNavTabs,
+  getPersonalProjects as getPersonalProjs,
+  getTeamProjects as getTeamProjs,
+  getProjectTeamMembers as getTeamMembers,
+  getProfileSkills as getSkillsList,
+  getSidebarSkills as getSidebarSkillsList,
+  getProfileProjects as getProfileProjs,
+} from "@/app/utils/data-utils"
 
 /**
  * Mendapatkan daftar tab navigasi
  * @returns {TabNavigasi[]} Daftar tab navigasi
  */
 export function getNavigationTabs(): TabNavigasi[] {
-  return [
-    { id: "profile", label: "Profil", href: "/" },
-    { id: "projects", label: "Proyek", href: "/projects" },
-    { id: "activity", label: "Aktivitas", href: "/activity" },
-    { id: "connections", label: "Koneksi", href: "/connections" },
-  ]
+  return getNavTabs()
 }
 
 /**
@@ -23,26 +27,7 @@ export function getNavigationTabs(): TabNavigasi[] {
  * @returns {Proyek[]} Daftar proyek personal
  */
 export function getPersonalProjects(): Proyek[] {
-  return [
-    {
-      id: 1,
-      title: "Apricot Designs iOS App",
-      category: "UI Design, UX Design",
-      description:
-        "I designed an app for pharmaceutical lab equipment company Apricot Design's Personal Pipettor. This app is available on the App Store for iOS devices.",
-      image: "/placeholder.svg?height=200&width=300",
-      tags: ["Illustrator", "Sketch"],
-    },
-    {
-      id: 2,
-      title: "Dance Portraits",
-      category: "Photography, Art Direction",
-      description:
-        "I think dancers are the most striking human beings. There is so much artistry and athleticism in the way they move and express themselves. I want to build portraits of these dancers as athletes, artists, and women.",
-      image: "/placeholder.svg?height=200&width=300",
-      tags: ["Photoshop", "Lightroom"],
-    },
-  ]
+  return getPersonalProjs()
 }
 
 /**
@@ -50,29 +35,7 @@ export function getPersonalProjects(): Proyek[] {
  * @returns {ProyekTim[]} Daftar proyek tim
  */
 export function getTeamProjects(): ProyekTim[] {
-  return [
-    {
-      id: 3,
-      title: "Rowkin Branding Visuals",
-      role: "Art Direction, Photography",
-      description:
-        "The project is to transform Rowkin from a technology-focused consumer electronics company to a lifestyle brand.",
-      image: "/placeholder.svg?height=200&width=300",
-      team: [
-        { name: "Minji Lee", role: "Designer" },
-        { name: "Nelson Glendinning", role: "Designer" },
-      ],
-    },
-    {
-      id: 4,
-      title: "First Assist App",
-      role: "UI Design, UX Design",
-      description:
-        "For FirstNET's Public Safety Hackathon, we built an app that helps people with mobility disabilities connect to first responders during a fire incident.",
-      image: "/placeholder.svg?height=200&width=300",
-      team: [{ name: "Gia Cheng", role: "UI/UX Designer" }],
-    },
-  ]
+  return getTeamProjs()
 }
 
 /**
@@ -80,10 +43,7 @@ export function getTeamProjects(): ProyekTim[] {
  * @returns {AnggotaTim[]} Daftar anggota tim
  */
 export function getProjectTeamMembers(): AnggotaTim[] {
-  return [
-    { name: "Gia Cheng", role: "Visual Designer", avatar: "GC" },
-    { name: "Ahmad Usama", role: "Computer Science Student", avatar: "AU" },
-  ]
+  return getTeamMembers()
 }
 
 /**
@@ -91,20 +51,7 @@ export function getProjectTeamMembers(): AnggotaTim[] {
  * @returns {string[]} Daftar keahlian
  */
 export function getSkills(): string[] {
-  return [
-    "Photoshop",
-    "Illustrator",
-    "InDesign",
-    "After Effects",
-    "Sketch",
-    "Invision",
-    "Keynote",
-    "Web Design",
-    "UI Design",
-    "UX Design",
-    "Photography",
-    "Illustration",
-  ]
+  return getSkillsList()
 }
 
 /**
@@ -112,7 +59,7 @@ export function getSkills(): string[] {
  * @returns {string[]} Daftar keahlian untuk sidebar
  */
 export function getSidebarSkills(): string[] {
-  return ["Photoshop", "Illustrator", "InDesign", "Visual Design", "Sketch", "UX Design", "UI Design"]
+  return getSidebarSkillsList()
 }
 
 /**
@@ -120,9 +67,5 @@ export function getSidebarSkills(): string[] {
  * @returns {Array<{title: string, category: string}>} Daftar proyek profil
  */
 export function getProfileProjects(): Array<{ title: string; category: string }> {
-  return [
-    { title: "UX/UI Design: Award Winning Public Safety App", category: "UI Design, UX Design" },
-    { title: "Branding & Art Direction: Rowkin", category: "Photography, Art Direction" },
-    { title: "Architecture Design: Green Secret Academy", category: "Architecture, Design" },
-  ]
+  return getProfileProjs()
 }
