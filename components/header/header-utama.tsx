@@ -50,9 +50,9 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
         <div className="flex-1 text-center sm:text-left sm:pl-40 pt-0 sm:pt-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Dimas Adijaya</h1>
           <p className="text-gray-600 mt-1 sm:mt-2 text-base sm:text-lg">
-            Designer & Photography in San Francisco Bay Area
+            Web Developer 
           </p>
-          <p className="text-gray-500 text-sm sm:text-base mt-1">Self-Employed • Cal Poly San Luis Obispo</p>
+          <p className="text-gray-500 text-sm sm:text-base mt-1">Informatics Student • University of Siliwangi</p>
         </div>
 
         {/* Tombol aksi */}

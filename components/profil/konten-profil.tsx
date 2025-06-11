@@ -28,14 +28,13 @@ export function KontenProfil() {
     <div className="space-y-8">
       <Card>
         <CardHeader>
-          <CardTitle>Ringkasan</CardTitle>
+          <CardTitle>About Me</CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-gray-600 mb-4">
             Berpikiran seni, visioner kreatif, fokus pada desain, pembuat konten digital yang bersemangat tentang
             desain, fotografi, storytelling, kewirausahaan, branding, pemasaran, teknologi.
           </p>
-          <Button variant="outline">Kunjungi Website</Button>
         </CardContent>
       </Card>
 
