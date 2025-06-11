@@ -33,9 +33,9 @@ export function DaftarKoneksi() {
   const placeholders = getPlaceholders()
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border w-full">
+    <div className="bg-main-secondary rounded-lg shadow-sm border border-main-border w-full">
       {/* Header dengan jumlah koneksi dan search */}
-      <div className="p-4 sm:p-6 border-b">
+      <div className="p-4 sm:p-6 border-b border-main-border">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <h2 className="text-lg sm:text-xl font-semibold text-gray-900">{title}</h2>
 
@@ -45,7 +45,7 @@ export function DaftarKoneksi() {
             <Input
               type="text"
               placeholder={placeholders.search}
-              className="pl-10 bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500"
+              className="pl-10 bg-main-secondary border-main-border focus:border-main-border focus:ring-main-border"
             />
           </div>
         </div>

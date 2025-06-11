@@ -37,7 +37,7 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
   const buttons = getNavigationButtons()
 
   return (
-    <div className="bg-white rounded-none shadow-sm overflow-hidden">
+    <div className="bg-main-secondary border border-main-border rounded-none shadow-sm overflow-hidden">
       {/* Bagian Gambar Latar Belakang */}
       <div className="relative h-24 sm:h-44">
         <div
@@ -61,24 +61,24 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
 
         {/* Info profil - Tengah di mobile */}
         <div className="flex-1 text-center sm:text-left sm:pl-40 pt-0 sm:pt-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">{profileName}</h1>
-          <p className="text-gray-600 mt-1 sm:mt-2 text-base sm:text-lg">{profileTitle}</p>
-          <p className="text-gray-500 text-sm sm:text-base mt-1">{profileEducation}</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-main-text">{profileName}</h1>
+          <p className="text-main-text mt-1 sm:mt-2 text-base sm:text-lg">{profileTitle}</p>
+          <p className="text-main-text text-sm sm:text-base mt-1">{profileEducation}</p>
         </div>
 
         {/* Tombol aksi */}
         <div className="flex gap-3 pt-2 sm:pt-8">
-          <Button className="bg-blue-600 hover:bg-blue-700 rounded-none px-4 sm:px-6 py-1 sm:py-2 text-sm sm:text-base">
+          <Button className="bg-main-button rounded-none px-4 sm:px-6 py-1 sm:py-2 text-sm sm:text-base">
             {buttons.message}
           </Button>
-          <Button variant="outline" className="rounded-none px-4 sm:px-6 py-1 sm:py-2 text-sm sm:text-base">
+          <Button variant="outline" className="bg-main-button-secondary border border-main-border rounded-none px-4 sm:px-6 py-1 sm:py-2 text-sm sm:text-base">
             {buttons.more}
           </Button>
         </div>
       </div>
 
       {/* Bagian Tab Navigasi - Dapat di-scroll di mobile */}
-      <div className="border-t overflow-x-auto">
+      <div className="border-t-2 border-main-border overflow-x-auto">
         <nav className="flex px-2 sm:px-8 min-w-max">
           {tabs.map((tab) => (
             <Link
@@ -87,7 +87,7 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
               className={cn(
                 "px-3 sm:px-6 py-3 sm:py-4 text-sm sm:text-base font-medium border-b-3 transition-colors whitespace-nowrap",
                 activeTab === tab.id
-                  ? "border-blue-600 text-blue-600"
+                  ? "border-blue-600 text-main-text"
                   : "border-transparent text-gray-500 hover:text-gray-700",
               )}
             >

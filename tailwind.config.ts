@@ -13,6 +13,17 @@ const config: Config = {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
+  			main: {
+  				primary: 'hsl(var(--main-primary))',
+  				secondary: 'hsl(var(--main-secondary))',
+  				border: 'hsl(var(--main-border))',
+  				button: 'hsl(var(--main-button))',
+  				'button-secondary': 'hsl(var(--main-button-secondary))',
+  				text: 'hsl(var(--main-text))',
+  				'text-secondary': 'hsl(var(--main-text-secondary))',
+  				'text-2': 'hsl(var(--main-text-2))',
+  				'text-third': 'hsl(var(--main-text-third))'
+  			},
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
