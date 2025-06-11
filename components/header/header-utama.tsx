@@ -8,7 +8,13 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import type { HeaderUtamaProps } from "@/types/komponen"
-import { getNavigationTabs } from "@/utils/data-provider"
+import {
+  getNavigationTabs,
+  getProfileName,
+  getProfileTitle,
+  getProfileEducation,
+  getNavigationButtons,
+} from "@/app/utils/data-utils"
 
 /**
  * Komponen header utama yang menampilkan profil dan navigasi
@@ -25,6 +31,10 @@ import { getNavigationTabs } from "@/utils/data-provider"
  */
 export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
   const tabs = getNavigationTabs()
+  const profileName = getProfileName()
+  const profileTitle = getProfileTitle()
+  const profileEducation = getProfileEducation()
+  const buttons = getNavigationButtons()
 
   return (
     <div className="bg-white rounded-none shadow-sm overflow-hidden">
@@ -39,29 +49,30 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
       {/* Bagian Header Profil */}
       <div className="relative px-4 sm:px-24 pb-4 sm:pb-8 pt-0 flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-6">
         {/* Avatar Overlap - Tengah di mobile, rata kiri di desktop */}
-        <div className="-mt-12 z-10 sm:mt-0 sm:z-auto sm:absolute mx-auto sm:mx-0" style={{ top: "-40px", left: "50px" }}>
+        <div
+          className="-mt-12 z-10 sm:mt-0 sm:z-auto sm:absolute mx-auto sm:mx-0"
+          style={{ top: "-40px", left: "50px" }}
+        >
           <Avatar className="w-24 h-24 sm:w-40 sm:h-40 border-4 border-white rounded-full shadow-lg bg-white">
-            <AvatarImage src="/placeholder.svg?height=160&width=160" alt="Sophia Liu" />
+            <AvatarImage src="/placeholder.svg?height=160&width=160" alt={profileName} />
             <AvatarFallback>SL</AvatarFallback>
           </Avatar>
         </div>
 
         {/* Info profil - Tengah di mobile */}
         <div className="flex-1 text-center sm:text-left sm:pl-40 pt-0 sm:pt-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Dimas Adijaya</h1>
-          <p className="text-gray-600 mt-1 sm:mt-2 text-base sm:text-lg">
-            Web Developer 
-          </p>
-          <p className="text-gray-500 text-sm sm:text-base mt-1">Informatics Student • University of Siliwangi</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">{profileName}</h1>
+          <p className="text-gray-600 mt-1 sm:mt-2 text-base sm:text-lg">{profileTitle}</p>
+          <p className="text-gray-500 text-sm sm:text-base mt-1">{profileEducation}</p>
         </div>
 
         {/* Tombol aksi */}
         <div className="flex gap-3 pt-2 sm:pt-8">
           <Button className="bg-blue-600 hover:bg-blue-700 rounded-none px-4 sm:px-6 py-1 sm:py-2 text-sm sm:text-base">
-            Pesan
+            {buttons.message}
           </Button>
           <Button variant="outline" className="rounded-none px-4 sm:px-6 py-1 sm:py-2 text-sm sm:text-base">
-            Lainnya...
+            {buttons.more}
           </Button>
         </div>
       </div>

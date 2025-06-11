@@ -8,84 +8,12 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Search } from "lucide-react"
 import type { KoneksiMutual } from "@/types/komponen"
-
-/**
- * Data dummy untuk koneksi mutual
- */
-const koneksiMutual: KoneksiMutual[] = [
-  {
-    id: 1,
-    name: "Person Marketing",
-    headline: "Company",
-    company: "Company",
-    avatar: "PM",
-    mutualConnections: 12,
-  },
-  {
-    id: 2,
-    name: "Person Marketing",
-    headline: "Company",
-    company: "Company",
-    avatar: "PM",
-    mutualConnections: 8,
-  },
-  {
-    id: 3,
-    name: "Person Marketing",
-    headline: "Company",
-    company: "Company",
-    avatar: "PM",
-    mutualConnections: 15,
-  },
-  {
-    id: 4,
-    name: "Person Marketing",
-    headline: "Company",
-    company: "Company",
-    avatar: "PM",
-    mutualConnections: 6,
-  },
-  {
-    id: 5,
-    name: "Person Marketing",
-    headline: "Company",
-    company: "Company",
-    avatar: "PM",
-    mutualConnections: 20,
-  },
-  {
-    id: 6,
-    name: "Person Marketing",
-    headline: "Company",
-    company: "Company",
-    avatar: "PM",
-    mutualConnections: 3,
-  },
-  {
-    id: 7,
-    name: "Person Marketing",
-    headline: "Company",
-    company: "Company",
-    avatar: "PM",
-    mutualConnections: 11,
-  },
-  {
-    id: 8,
-    name: "Person Marketing",
-    headline: "Company",
-    company: "Company",
-    avatar: "PM",
-    mutualConnections: 7,
-  },
-  {
-    id: 9,
-    name: "Person Marketing",
-    headline: "Company",
-    company: "Company",
-    avatar: "PM",
-    mutualConnections: 14,
-  },
-]
+import {
+  getConnectionsTitle,
+  getMutualConnections,
+  getNavigationButtons,
+  getPlaceholders,
+} from "@/app/utils/data-utils"
 
 /**
  * Komponen untuk menampilkan daftar koneksi mutual
@@ -99,19 +27,24 @@ const koneksiMutual: KoneksiMutual[] = [
  * ```
  */
 export function DaftarKoneksi() {
+  const title = getConnectionsTitle()
+  const koneksiMutual = getMutualConnections()
+  const buttons = getNavigationButtons()
+  const placeholders = getPlaceholders()
+
   return (
     <div className="bg-white rounded-lg shadow-sm border w-full">
       {/* Header dengan jumlah koneksi dan search */}
       <div className="p-4 sm:p-6 border-b">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <h2 className="text-lg sm:text-xl font-semibold text-gray-900">50 Mutual Connections</h2>
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-900">{title}</h2>
 
           {/* Search bar */}
           <div className="relative w-full sm:w-80">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
             <Input
               type="text"
-              placeholder="Search..."
+              placeholder={placeholders.search}
               className="pl-10 bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500"
             />
           </div>
@@ -129,7 +62,7 @@ export function DaftarKoneksi() {
         {/* Tombol Show more */}
         <div className="flex justify-center mt-6 sm:mt-8">
           <Button variant="ghost" className="text-blue-600 hover:text-blue-700 hover:bg-blue-50">
-            Show more →
+            {buttons.showMore}
           </Button>
         </div>
       </div>

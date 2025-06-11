@@ -47,3 +47,40 @@ export const getPlaceholders = () => data.pages.placeholders
 
 // Project team members
 export const getProjectTeamMembers = () => data.projects.featuredProject.teamMembers
+
+// Helper function to get all text content for a specific section
+export const getTextContent = (section: keyof typeof data) => {
+  return data[section]
+}
+
+// Helper function to search for specific content
+export const findContent = (searchTerm: string): any[] => {
+  const results: any[] = []
+
+  const searchInObject = (obj: any, path = "") => {
+    for (const [key, value] of Object.entries(obj)) {
+      const currentPath = path ? `${path}.${key}` : key
+
+      if (typeof value === "string" && value.toLowerCase().includes(searchTerm.toLowerCase())) {
+        results.push({ path: currentPath, content: value })
+      } else if (typeof value === "object" && value !== null) {
+        searchInObject(value, currentPath)
+      }
+    }
+  }
+
+  searchInObject(data)
+  return results
+}
+
+// Helper function to update content (for future admin interface)
+export const getContentStructure = () => {
+  return {
+    profile: Object.keys(data.profile),
+    navigation: Object.keys(data.navigation),
+    projects: Object.keys(data.projects),
+    connections: Object.keys(data.connections),
+    sidebar: Object.keys(data.sidebar),
+    pages: Object.keys(data.pages),
+  }
+}

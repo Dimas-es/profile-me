@@ -7,7 +7,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import { getSkills, getProfileProjects } from "@/utils/data-provider"
+import {
+  getProfileAbout,
+  getProfileSkills,
+  getProfileExperience,
+  getProfileProjects,
+  getSectionTitles,
+  getNavigationButtons,
+} from "@/app/utils/data-utils"
 
 /**
  * Komponen yang menampilkan konten profil pengguna
@@ -21,20 +28,21 @@ import { getSkills, getProfileProjects } from "@/utils/data-provider"
  * ```
  */
 export function KontenProfil() {
-  const skills = getSkills()
+  const aboutText = getProfileAbout()
+  const skills = getProfileSkills()
+  const experience = getProfileExperience()
   const projects = getProfileProjects()
+  const sections = getSectionTitles()
+  const buttons = getNavigationButtons()
 
   return (
     <div className="space-y-8">
       <Card>
         <CardHeader>
-          <CardTitle>About Me</CardTitle>
+          <CardTitle>{sections.aboutMe}</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-gray-600 mb-4">
-            Berpikiran seni, visioner kreatif, fokus pada desain, pembuat konten digital yang bersemangat tentang
-            desain, fotografi, storytelling, kewirausahaan, branding, pemasaran, teknologi.
-          </p>
+          <p className="text-gray-600 mb-4">{aboutText}</p>
         </CardContent>
       </Card>
 
@@ -65,7 +73,7 @@ export function KontenProfil() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Keahlian</CardTitle>
+          <CardTitle>{sections.skills}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2">
@@ -80,38 +88,23 @@ export function KontenProfil() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Pengalaman</CardTitle>
+          <CardTitle>{sections.experience}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4 sm:space-y-6">
-          <div className="flex gap-3 sm:gap-4">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-black rounded-none flex items-center justify-center text-white font-bold text-sm sm:text-base">
-              AC
+          {experience.map((exp, index) => (
+            <div key={index} className="flex gap-3 sm:gap-4">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-black rounded-none flex items-center justify-center text-white font-bold text-sm sm:text-base">
+                {exp.company.charAt(0)}
+              </div>
+              <div className="flex-1">
+                <h3 className="font-semibold text-sm sm:text-base">{exp.title}</h3>
+                <p className="text-gray-600 text-xs sm:text-sm">{exp.company}</p>
+                <p className="text-gray-500 text-xs sm:text-sm">{exp.period}</p>
+                {exp.location && <p className="text-gray-500 text-xs sm:text-sm">{exp.location}</p>}
+                <p className="text-gray-600 text-xs sm:text-sm mt-1 sm:mt-2">{exp.description}</p>
+              </div>
             </div>
-            <div className="flex-1">
-              <h3 className="font-semibold text-sm sm:text-base">Desainer dan Fotografer</h3>
-              <p className="text-gray-600 text-xs sm:text-sm">Ashley Choe</p>
-              <p className="text-gray-500 text-xs sm:text-sm">Des 2017 - Sekarang</p>
-              <p className="text-gray-500 text-xs sm:text-sm">San Francisco Bay Area</p>
-              <p className="text-gray-600 text-xs sm:text-sm mt-1 sm:mt-2">
-                Membuat konten digital dan mengembangkan visi merek dalam startup elektronik konsumen yang berkembang
-                pesat.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex gap-3 sm:gap-4">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-200 rounded-none flex items-center justify-center">
-              <span className="text-base sm:text-lg">📷</span>
-            </div>
-            <div className="flex-1">
-              <h3 className="font-semibold text-sm sm:text-base">Desainer & Fotografer</h3>
-              <p className="text-gray-600 text-xs sm:text-sm">Pemilik</p>
-              <p className="text-gray-500 text-xs sm:text-sm">Maret 2012 - Sekarang</p>
-              <p className="text-gray-600 text-xs sm:text-sm mt-1 sm:mt-2">
-                Fotografer, desainer, dan ilustrator freelance.
-              </p>
-            </div>
-          </div>
+          ))}
         </CardContent>
       </Card>
     </div>
