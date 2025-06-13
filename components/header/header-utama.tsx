@@ -7,7 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
-import type { HeaderUtamaProps } from "@/types/komponen"
+import type { HeaderUtamaProps } from "@/types/index.ts"
 import {
   getNavigationTabs,
   getProfileName,
