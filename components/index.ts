@@ -26,7 +26,6 @@ export * from "./ui/button"
 export * from "./ui/card"
 export * from "./ui/input"
 export * from "./ui/sheet"
-export * from "./ui/theme-toggle"
 export * from "./ui/loading"
 export * from "./ui/error-boundary"
 
