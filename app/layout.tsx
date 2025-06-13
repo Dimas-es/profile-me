@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "DIMAS ADIJAYA",
   description: "Created with v0",
   generator: "v0.dev",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
 }
 
 export default function RootLayout({
@@ -16,6 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={systemFont.variable}>
+      <head>
+        <meta name="theme-color" content="#000000" />
+      </head>
       <body>{children}</body>
     </html>
   )

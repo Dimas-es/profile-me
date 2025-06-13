@@ -21,8 +21,8 @@ export function SidebarKontak() {
   const contact = getSidebarContact()
 
   return (
-    <div className="bg-main-secondary border border-main-border rounded-none shadow-sm p-4 sm:p-6">
-      <h2 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-main-text">{contact.title}</h2>
+    <div className="bg-main-secondary border border-main-border rounded-none shadow-sm p-3 sm:p-4 md:p-6">
+      <h2 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 md:mb-4 text-main-text">{contact.title}</h2>
       <div className="space-y-2 sm:space-y-3">
         <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-main-text-2">
           <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-main-text-third" />
