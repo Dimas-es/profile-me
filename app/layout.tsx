@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${systemFont.variable} dark`}>
+    <html lang="en" className={systemFont.variable}>
       <head>
         <meta name="theme-color" content="#000000" />
       </head>
