@@ -3,13 +3,12 @@ import { HeaderUtama } from "@/components/header/header-utama"
 import { Input } from "@/components/ui/input"
 import { SidebarKontak } from "@/components/sidebar/sidebar-kontak"
 import { SidebarKeahlian } from "@/components/sidebar/sidebar-keahlian"
+import { MobileMenu } from "@/components/layout/mobile-menu"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, Search, X } from "lucide-react"
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from "@/components/ui/sheet"
+import { Search } from "lucide-react"
+import { useMobile } from "@/hooks/use-mobile"
 import type { MainLayoutProps } from "@/types/komponen"
 
 /**
@@ -20,33 +19,11 @@ import type { MainLayoutProps } from "@/types/komponen"
  * @param {React.ReactNode} props.children - Konten yang akan ditampilkan di dalam layout
  * @param {string} props.activeTab - Tab yang sedang aktif
  * @returns {JSX.Element} Komponen layout utama
- *
- * @example
- * ```tsx
- * <LayoutUtama activeTab="profile">
- *   <KontenHalaman />
- * </LayoutUtama>
- * ```
  */
 export function LayoutUtama({ children, activeTab }: MainLayoutProps) {
   const pathname = usePathname()
   const showSkills = pathname.startsWith("/projects") || pathname.startsWith("/project/")
-  const [isOpen, setIsOpen] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
-
-  // Check if we're on client-side before using window
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024)
-    }
-
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-
-    return () => {
-      window.removeEventListener("resize", checkMobile)
-    }
-  }, [])
+  const isMobile = useMobile()
 
   return (
     <div className="min-h-screen bg-main-primary">
@@ -75,48 +52,8 @@ export function LayoutUtama({ children, activeTab }: MainLayoutProps) {
             </div>
           </div>
 
-          {/* Tombol menu mobile */}
-          <div className="block lg:hidden">
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="h-8 w-8">
-                  <Menu className="h-5 w-5 text-main-text" />
-                  <span className="sr-only">Buka menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[85%] sm:w-[385px] bg-main-secondary border-main-border">
-                <div className="flex items-center justify-between mb-6">
-                  <SheetTitle className="text-main-text">Menu</SheetTitle>
-                  <SheetClose asChild>
-                    <Button variant="ghost" size="icon" className="h-8 w-8">
-                      <X className="h-5 w-5 text-main-text" />
-                      <span className="sr-only">Tutup menu</span>
-                    </Button>
-                  </SheetClose>
-                </div>
-                <div className="py-4 space-y-6">
-                  <div className="px-1">
-                    <div className="relative">
-                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-main-text-third h-4 w-4" />
-                      <Input
-                        type="search"
-                        placeholder="Cari"
-                        className="bg-main-secondary border-main-border pl-10 pr-4 py-1 h-9 text-sm"
-                      />
-                    </div>
-                  </div>
-                  <div className="border-t border-main-border pt-6">
-                    <SidebarKontak />
-                    {showSkills && (
-                      <div className="mt-6">
-                        <SidebarKeahlian />
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
+          {/* Mobile Menu Component */}
+          <MobileMenu showSkills={showSkills} />
         </div>
       </div>
 
