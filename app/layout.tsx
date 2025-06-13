@@ -1,5 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { systemFont } from "./fonts"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -14,16 +15,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;500;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="font-['Helvetica_Neue',Arial,Helvetica,sans-serif]">{children}</body>
+    <html lang="en" className={systemFont.variable}>
+      <body>{children}</body>
     </html>
   )
 }
