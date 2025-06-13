@@ -1,4 +1,5 @@
 "use client"
+import React from "react"
 import { HeaderUtama } from "@/components/header/header-utama"
 import { Input } from "@/components/ui/input"
 import { SidebarKontak } from "@/components/sidebar/sidebar-kontak"
@@ -9,7 +10,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Search } from "lucide-react"
 import { useMobile } from "@/hooks/use-mobile"
-import type { MainLayoutProps } from "@/types/komponen"
+import type { MainLayoutProps } from "@/types"
 
 /**
  * Komponen layout utama yang digunakan di seluruh aplikasi
@@ -20,7 +21,7 @@ import type { MainLayoutProps } from "@/types/komponen"
  * @param {string} props.activeTab - Tab yang sedang aktif
  * @returns {JSX.Element} Komponen layout utama
  */
-export function LayoutUtama({ children, activeTab }: MainLayoutProps) {
+function LayoutUtamaBase({ children, activeTab }: MainLayoutProps) {
   const pathname = usePathname()
   const showSkills = pathname.startsWith("/projects") || pathname.startsWith("/project/")
   const isMobile = useMobile()
@@ -93,3 +94,6 @@ export function LayoutUtama({ children, activeTab }: MainLayoutProps) {
     </div>
   )
 }
+
+// Memoize the component to prevent unnecessary re-renders
+export const LayoutUtama = React.memo(LayoutUtamaBase)

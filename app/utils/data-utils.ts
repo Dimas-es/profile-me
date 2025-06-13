@@ -1,7 +1,8 @@
 import data from "../data/data.json"
 
 /**
- * Utility functions to access centralized data
+ * Centralized data utility functions
+ * @module data-utils
  */
 
 // Profile data
@@ -48,11 +49,6 @@ export const getPlaceholders = () => data.pages.placeholders
 // Project team members
 export const getProjectTeamMembers = () => data.projects.featuredProject.teamMembers
 
-// Helper function to get all text content for a specific section
-export const getTextContent = (section: keyof typeof data) => {
-  return data[section]
-}
-
 // Helper function to search for specific content
 export const findContent = (searchTerm: string): any[] => {
   const results: any[] = []
@@ -73,7 +69,7 @@ export const findContent = (searchTerm: string): any[] => {
   return results
 }
 
-// Helper function to update content (for future admin interface)
+// Helper function to get content structure (for future admin interface)
 export const getContentStructure = () => {
   return {
     profile: Object.keys(data.profile),

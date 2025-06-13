@@ -7,11 +7,9 @@ import { Menu, X, Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { SidebarKontak } from "@/components/sidebar/sidebar-kontak"
 import { SidebarKeahlian } from "@/components/sidebar/sidebar-keahlian"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { getPlaceholders } from "@/app/utils/data-utils"
-
-interface MobileMenuProps {
-  showSkills: boolean
-}
+import type { MobileMenuProps } from "@/types"
 
 export function MobileMenu({ showSkills }: MobileMenuProps) {
   const [open, setOpen] = useState(false)
@@ -19,11 +17,14 @@ export function MobileMenu({ showSkills }: MobileMenuProps) {
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="h-8 w-8 lg:hidden" aria-label="Open menu">
-          <Menu className="h-5 w-5 text-main-text" />
-        </Button>
-      </SheetTrigger>
+      <div className="flex items-center gap-2">
+        <ThemeToggle />
+        <SheetTrigger asChild>
+          <Button variant="ghost" size="icon" className="h-8 w-8 lg:hidden" aria-label="Open menu">
+            <Menu className="h-5 w-5 text-main-text" />
+          </Button>
+        </SheetTrigger>
+      </div>
       <SheetContent side="right" className="w-[85%] sm:w-[385px] bg-main-secondary border-main-border p-4">
         <div className="flex items-center justify-between mb-6">
           <SheetTitle className="text-lg font-semibold text-main-text">Menu</SheetTitle>

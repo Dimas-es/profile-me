@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { systemFont } from "./fonts"
+import { ThemeProvider } from "@/contexts/theme-context"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -16,11 +17,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={systemFont.variable}>
+    <html lang="en" className={systemFont.variable} suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#000000" />
       </head>
-      <body>{children}</body>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   )
 }
