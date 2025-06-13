@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
@@ -26,7 +26,7 @@ export function MobileMenu({ showSkills }: MobileMenuProps) {
       </SheetTrigger>
       <SheetContent side="right" className="w-[85%] sm:w-[385px] bg-main-secondary border-main-border p-4">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-lg font-semibold text-main-text">Menu</h2>
+          <SheetTitle className="text-lg font-semibold text-main-text">Menu</SheetTitle>
           <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setOpen(false)}>
             <X className="h-5 w-5 text-main-text" />
             <span className="sr-only">Tutup menu</span>
