@@ -37,15 +37,15 @@ export function DaftarKoneksi() {
       {/* Header dengan jumlah koneksi dan search */}
       <div className="p-4 sm:p-6 border-b border-main-border">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <h2 className="text-lg sm:text-xl font-semibold text-gray-900">{title}</h2>
+          <h2 className="text-lg sm:text-xl font-semibold text-main-text">{title}</h2>
 
           {/* Search bar */}
           <div className="relative w-full sm:w-80">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-main-text-third h-4 w-4" />
             <Input
               type="text"
               placeholder={placeholders.search}
-              className="pl-10 bg-main-secondary border-main-border focus:border-main-border focus:ring-main-border"
+              className="pl-10 bg-main-secondary border-main-border focus:border-main-border focus:ring-main-border text-main-text"
             />
           </div>
         </div>
@@ -61,7 +61,7 @@ export function DaftarKoneksi() {
 
         {/* Tombol Show more */}
         <div className="flex justify-center mt-6 sm:mt-8">
-          <Button variant="ghost" className="text-blue-600 hover:text-blue-700 hover:bg-blue-50">
+          <Button variant="ghost" className="text-main-text-secondary hover:text-main-text hover:bg-main-button/10">
             {buttons.showMore}
           </Button>
         </div>
@@ -80,18 +80,18 @@ export function DaftarKoneksi() {
  */
 function KartuKoneksi({ koneksi }: { koneksi: KoneksiMutual }) {
   return (
-    <div className="flex items-start gap-3 p-4 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+    <div className="flex items-start gap-3 p-4 rounded-lg hover:bg-main-primary/10 transition-colors cursor-pointer">
       {/* Avatar */}
       <Avatar className="w-12 h-12 flex-shrink-0">
         <AvatarImage src={`/placeholder.svg?height=48&width=48`} alt={koneksi.name} />
-        <AvatarFallback className="bg-gray-200 text-gray-600 text-sm font-medium">{koneksi.avatar}</AvatarFallback>
+        <AvatarFallback className="bg-main-primary text-main-text text-sm font-medium">{koneksi.avatar}</AvatarFallback>
       </Avatar>
 
       {/* Info koneksi */}
       <div className="flex-1 min-w-0">
-        <h3 className="font-medium text-gray-900 text-sm leading-tight mb-1 truncate">{koneksi.name}</h3>
-        <p className="text-xs text-gray-600 mb-1 truncate">{koneksi.headline}</p>
-        <p className="text-xs text-gray-500 truncate">{koneksi.company}</p>
+        <h3 className="font-medium text-main-text text-sm leading-tight mb-1 truncate">{koneksi.name}</h3>
+        <p className="text-xs text-main-text-2 mb-1 truncate">{koneksi.headline}</p>
+        <p className="text-xs text-main-text-third truncate">{koneksi.company}</p>
       </div>
     </div>
   )

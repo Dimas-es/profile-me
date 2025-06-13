@@ -62,16 +62,19 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
         {/* Info profil - Tengah di mobile */}
         <div className="flex-1 text-center sm:text-left sm:pl-40 pt-0 sm:pt-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-main-text">{profileName}</h1>
-          <p className="text-main-text mt-1 sm:mt-2 text-base sm:text-lg">{profileTitle}</p>
-          <p className="text-main-text text-sm sm:text-base mt-1">{profileEducation}</p>
+          <p className="text-main-text-2 mt-1 sm:mt-2 text-base sm:text-lg">{profileTitle}</p>
+          <p className="text-main-text-third text-sm sm:text-base mt-1">{profileEducation}</p>
         </div>
 
         {/* Tombol aksi */}
         <div className="flex gap-3 pt-2 sm:pt-8">
-          <Button className="bg-main-button rounded-none px-4 sm:px-6 py-1 sm:py-2 text-sm sm:text-base">
+          <Button className="bg-main-button hover:bg-main-button/90 text-main-text rounded-none px-4 sm:px-6 py-1 sm:py-2 text-sm sm:text-base">
             {buttons.message}
           </Button>
-          <Button variant="outline" className="bg-main-button-secondary border border-main-border rounded-none px-4 sm:px-6 py-1 sm:py-2 text-sm sm:text-base">
+          <Button
+            variant="outline"
+            className="bg-main-button-secondary border border-main-border text-main-text rounded-none px-4 sm:px-6 py-1 sm:py-2 text-sm sm:text-base"
+          >
             {buttons.more}
           </Button>
         </div>
@@ -87,8 +90,8 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
               className={cn(
                 "px-3 sm:px-6 py-3 sm:py-4 text-sm sm:text-base font-medium border-b-3 transition-colors whitespace-nowrap",
                 activeTab === tab.id
-                  ? "border-blue-600 text-main-text"
-                  : "border-transparent text-gray-500 hover:text-gray-700",
+                  ? "border-main-text-secondary text-main-text"
+                  : "border-transparent text-main-text-third hover:text-main-text-2",
               )}
             >
               {tab.label}

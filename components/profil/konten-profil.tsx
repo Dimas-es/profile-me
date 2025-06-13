@@ -37,18 +37,18 @@ export function KontenProfil() {
 
   return (
     <div className="space-y-8">
-      <Card>
+      <Card className="bg-main-secondary border border-main-border">
         <CardHeader>
-          <CardTitle>{sections.aboutMe}</CardTitle>
+          <CardTitle className="text-main-text">{sections.aboutMe}</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-gray-600 mb-4">{aboutText}</p>
+          <p className="text-main-text-2 mb-4">{aboutText}</p>
         </CardContent>
       </Card>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
         {projects.map((project, index) => (
-          <Card key={index}>
+          <Card key={index} className="bg-main-secondary border border-main-border">
             <div className="aspect-square relative">
               <Image
                 src="/placeholder.svg?height=200&width=200"
@@ -58,27 +58,27 @@ export function KontenProfil() {
               />
             </div>
             <CardContent className="p-3 sm:p-4">
-              <h3 className="font-medium text-xs sm:text-sm">{project.title}</h3>
-              <p className="text-blue-600 text-xs mt-1">{project.category}</p>
+              <h3 className="font-medium text-xs sm:text-sm text-main-text">{project.title}</h3>
+              <p className="text-main-text-secondary text-xs mt-1">{project.category}</p>
             </CardContent>
           </Card>
         ))}
       </div>
 
       <div className="text-center">
-        <Button variant="link" className="text-blue-600">
+        <Button variant="link" className="text-main-text-secondary">
           Lihat semua proyek
         </Button>
       </div>
 
-      <Card>
+      <Card className="bg-main-secondary border border-main-border">
         <CardHeader>
-          <CardTitle>{sections.skills}</CardTitle>
+          <CardTitle className="text-main-text">{sections.skills}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
-              <Badge key={skill} variant="outline" className="text-sm">
+              <Badge key={skill} variant="outline" className="text-sm text-main-text-2 border-main-border">
                 {skill}
               </Badge>
             ))}
@@ -86,22 +86,22 @@ export function KontenProfil() {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="bg-main-secondary border border-main-border">
         <CardHeader>
-          <CardTitle>{sections.experience}</CardTitle>
+          <CardTitle className="text-main-text">{sections.experience}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4 sm:space-y-6">
           {experience.map((exp, index) => (
             <div key={index} className="flex gap-3 sm:gap-4">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-black rounded-none flex items-center justify-center text-white font-bold text-sm sm:text-base">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-main-primary rounded-none flex items-center justify-center text-main-text font-bold text-sm sm:text-base">
                 {exp.company.charAt(0)}
               </div>
               <div className="flex-1">
-                <h3 className="font-semibold text-sm sm:text-base">{exp.title}</h3>
-                <p className="text-gray-600 text-xs sm:text-sm">{exp.company}</p>
-                <p className="text-gray-500 text-xs sm:text-sm">{exp.period}</p>
-                {exp.location && <p className="text-gray-500 text-xs sm:text-sm">{exp.location}</p>}
-                <p className="text-gray-600 text-xs sm:text-sm mt-1 sm:mt-2">{exp.description}</p>
+                <h3 className="font-semibold text-sm sm:text-base text-main-text">{exp.title}</h3>
+                <p className="text-main-text-2 text-xs sm:text-sm">{exp.company}</p>
+                <p className="text-main-text-third text-xs sm:text-sm">{exp.period}</p>
+                {exp.location && <p className="text-main-text-third text-xs sm:text-sm">{exp.location}</p>}
+                <p className="text-main-text-2 text-xs sm:text-sm mt-1 sm:mt-2">{exp.description}</p>
               </div>
             </div>
           ))}
