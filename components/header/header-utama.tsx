@@ -5,11 +5,8 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { cn } from "@/lib/utils"
 import type { HeaderUtamaProps } from "@/types/index.ts"
 import {
-  getNavigationTabs,
   getProfileName,
   getProfileTitle,
   getProfileEducation,
@@ -17,7 +14,7 @@ import {
 } from "@/app/utils/data-utils"
 
 /**
- * Komponen header utama yang menampilkan profil dan navigasi
+ * Komponen header utama yang menampilkan profil
  *
  * @component
  * @param {HeaderUtamaProps} props - Properti komponen
@@ -30,7 +27,6 @@ import {
  * ```
  */
 export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
-  const tabs = getNavigationTabs()
   const profileName = getProfileName()
   const profileTitle = getProfileTitle()
   const profileEducation = getProfileEducation()
@@ -79,26 +75,6 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
             {buttons.more}
           </Button>
         </div>
-      </div>
-
-      {/* Bagian Tab Navigasi - Dapat di-scroll di mobile */}
-      <div className="border-t-2 border-main-border overflow-x-auto">
-        <nav className="flex px-2 sm:px-4 md:px-8 min-w-max">
-          {tabs.map((tab) => (
-            <Link
-              key={tab.id}
-              href={tab.href}
-              className={cn(
-                "px-2 sm:px-3 md:px-6 py-2 sm:py-3 md:py-4 text-xs sm:text-sm md:text-base font-medium border-b-3 transition-colors whitespace-nowrap",
-                activeTab === tab.id
-                  ? "border-main-text-secondary text-main-text"
-                  : "border-transparent text-main-text-third hover:text-main-text-2",
-              )}
-            >
-              {tab.label}
-            </Link>
-          ))}
-        </nav>
       </div>
     </div>
   )

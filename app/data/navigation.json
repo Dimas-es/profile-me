@@ -1,0 +1,16 @@
+{
+  "tabs": [
+    { "id": "profile", "label": "Profil", "href": "/" },
+    { "id": "projects", "label": "Proyek", "href": "/projects" },
+    { "id": "activity", "label": "Aktivitas", "href": "/activity" },
+    { "id": "connections", "label": "Koneksi", "href": "/connections" }
+  ],
+  "buttons": {
+    "message": "Pesan",
+    "more": "Lainnya...",
+    "showMore": "Show more →",
+    "visitWebsite": "Kunjungi Website",
+    "learnMore": "Pelajari Lebih Lanjut",
+    "back": "Kembali ke Daftar Proyek"
+  }
+} 

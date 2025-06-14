@@ -2,8 +2,8 @@
 import React from "react"
 import { HeaderUtama } from "@/components/header/header-utama"
 import { Input } from "@/components/ui/input"
-import { SidebarKontak } from "@/components/sidebar/sidebar-kontak"
 import { SidebarKeahlian } from "@/components/sidebar/sidebar-keahlian"
+import { SidebarNavigation } from "@/components/sidebar/sidebar-navigation"
 import { MobileMenu } from "@/components/layout/mobile-menu"
 import { ThemeToggle } from "@/components/theme-toggle"
 import Image from "next/image"
@@ -84,8 +84,8 @@ function LayoutUtamaBase({ children, activeTab }: MainLayoutProps) {
 
             {/* Sidebar - Tersembunyi di mobile (ditampilkan di sheet), 1/4 di desktop */}
             <div className="lg:col-span-1 space-y-4 sm:space-y-6 md:space-y-8 hidden lg:block order-1 lg:order-2">
-              <div className="sticky top-24">
-                <SidebarKontak />
+              <div className="sticky top-24 space-y-4 sm:space-y-6 md:space-y-8">
+                <SidebarNavigation activeTab={activeTab} />
                 {showSkills && <SidebarKeahlian />}
               </div>
             </div>

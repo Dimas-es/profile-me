@@ -26,6 +26,7 @@ export interface DetailProyekProps {
 
 export interface MobileMenuProps {
   showSkills: boolean
+  activeTab: string
 }
 
 /**

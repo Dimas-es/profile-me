@@ -1,0 +1,28 @@
+{
+  "contact": {
+    "title": "Links",
+    "github": {
+      "label": "Github",
+      "icon": "github"
+    },
+    "instagram": {
+      "label": "Instagram",
+      "icon": "instagram"
+    },
+    "linkedin": {
+      "label": "LinkedIn",
+      "icon": "linkedin"
+    },
+    "email": {
+      "label": "E-mail",
+      "icon": "mail"
+    },
+    "twitter": {
+      "label": "X",
+      "icon": "twitter"
+    }
+  },
+  "skills": {
+    "title": "Keahlian"
+  }
+} 

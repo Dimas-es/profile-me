@@ -5,13 +5,13 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/s
 import { Button } from "@/components/ui/button"
 import { Menu, X, Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
-import { SidebarKontak } from "@/components/sidebar/sidebar-kontak"
 import { SidebarKeahlian } from "@/components/sidebar/sidebar-keahlian"
+import { SidebarNavigation } from "@/components/sidebar/sidebar-navigation"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { getPlaceholders } from "@/app/utils/data-utils"
 import type { MobileMenuProps } from "@/types"
 
-export function MobileMenu({ showSkills }: MobileMenuProps) {
+export function MobileMenu({ showSkills, activeTab }: MobileMenuProps) {
   const [open, setOpen] = useState(false)
   const placeholders = getPlaceholders()
 
@@ -44,13 +44,9 @@ export function MobileMenu({ showSkills }: MobileMenuProps) {
               />
             </div>
           </div>
-          <div className="border-t border-main-border pt-6">
-            <SidebarKontak />
-            {showSkills && (
-              <div className="mt-6">
-                <SidebarKeahlian />
-              </div>
-            )}
+          <div className="border-t border-main-border pt-6 space-y-6">
+            <SidebarNavigation activeTab={activeTab} />
+            {showSkills && <SidebarKeahlian />}
           </div>
         </div>
       </SheetContent>

@@ -1,0 +1,14 @@
+{
+  "activity": {
+    "title": "Aktivitas",
+    "description": "Aktivitas terbaru Anda akan muncul di sini."
+  },
+  "sections": {
+    "aboutMe": "About Me",
+    "experience": "Pengalaman",
+    "skills": "Keahlian"
+  },
+  "placeholders": {
+    "search": "Cari"
+  }
+} 

@@ -1,0 +1,36 @@
+{
+  "name": "Dimas Adijaya",
+  "title": "Web Developer",
+  "education": "Informatics Student • University of Siliwangi",
+  "about": "Berpikiran seni, visioner kreatif, fokus pada desain, pembuat konten digital yang bersemangat tentang desain, fotografi, storytelling, kewirausahaan, branding, pemasaran, teknologi.",
+  "experience": [
+    {
+      "title": "Backend Developer",
+      "company": "Devix",
+      "period": "Februari 2025 - Sekarang",
+      "location": "Tasikmalaya",
+      "description": "Membuat konten digital dan mengembangkan visi merek dalam startup elektronik konsumen yang berkembang pesat."
+    },
+    {
+      "title": "Desainer & Fotografer",
+      "company": "Pemilik",
+      "period": "Maret 2012 - Sekarang",
+      "description": "Fotografer, desainer, dan ilustrator freelance."
+    }
+  ],
+  "skills": [
+    "Photoshop",
+    "Illustrator",
+    "InDesign",
+    "After Effects",
+    "Sketch",
+    "Invision",
+    "Keynote",
+    "Web Design",
+    "UI Design",
+    "UX Design",
+    "Photography",
+    "Illustration"
+  ],
+  "sidebarSkills": ["Photoshop", "Illustrator", "InDesign", "Visual Design", "Sketch", "UX Design", "UI Design"]
+} 
