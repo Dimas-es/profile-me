@@ -11,6 +11,7 @@ const config: Config = {
   theme: {
     fontFamily: {
       sans: ["var(--font-sans)"],
+      geist: ["var(--font-geist)"],
     },
     extend: {
       colors: {

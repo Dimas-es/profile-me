@@ -57,7 +57,7 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
 
         {/* Info profil - Tengah di mobile */}
         <div className="flex-1 text-center sm:text-left sm:pl-32 md:pl-40 pt-0 sm:pt-6 md:pt-8">
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-main-text">{profileName}</h1>
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold text-main-text">{profileName}</h1>
           <p className="text-main-text-2 mt-1 sm:mt-2 text-sm sm:text-base md:text-lg">{profileTitle}</p>
           <p className="text-main-text-third text-xs sm:text-sm md:text-base mt-1">{profileEducation}</p>
         </div>
