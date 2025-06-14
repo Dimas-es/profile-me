@@ -7,6 +7,7 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: ["class"],
   theme: {
     fontFamily: {
       sans: ["var(--font-sans)"],
@@ -20,7 +21,9 @@ const config: Config = {
           secondary: "hsl(var(--main-secondary))",
           border: "hsl(var(--main-border))",
           button: "hsl(var(--main-button))",
+          "button-hover": "hsl(var(--main-button-hover))",
           "button-secondary": "hsl(var(--main-button-secondary))",
+          "button-secondary-hover": "hsl(var(--main-button-secondary-hover))",
           text: "hsl(var(--main-text))",
           "text-secondary": "hsl(var(--main-text-secondary))",
           "text-2": "hsl(var(--main-text-2))",
@@ -76,26 +79,18 @@ const config: Config = {
         },
       },
       borderRadius: {
-        lg: "0",
-        md: "0",
-        sm: "0",
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
@@ -106,4 +101,5 @@ const config: Config = {
   },
   plugins: [require("tailwindcss-animate")],
 }
+
 export default config

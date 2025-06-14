@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input"
 import { SidebarKontak } from "@/components/sidebar/sidebar-kontak"
 import { SidebarKeahlian } from "@/components/sidebar/sidebar-keahlian"
 import { MobileMenu } from "@/components/layout/mobile-menu"
+import { ThemeToggle } from "@/components/theme-toggle"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -53,8 +54,11 @@ function LayoutUtamaBase({ children, activeTab }: MainLayoutProps) {
             </div>
           </div>
 
-          {/* Mobile Menu Component */}
-          <MobileMenu showSkills={showSkills} />
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            {/* Mobile Menu Component */}
+            <MobileMenu showSkills={showSkills} />
+          </div>
         </div>
       </div>
 
