@@ -15,6 +15,25 @@ import {
   getSectionTitles,
   getNavigationButtons,
 } from "@/app/utils/data-utils"
+import { SiHtml5, SiCss3, SiJavascript, SiReact, SiNextdotjs, SiNodedotjs, SiTailwindcss, SiPostgresql, SiSupabase, SiGit, SiGithub, SiVercel } from "react-icons/si"
+import { IconBaseProps } from "react-icons"
+import React from "react"
+import type { FC } from "react"
+
+const skillIcons: Record<string, IconType | undefined> = {
+  HTML5: SiHtml5,
+  CSS3: SiCss3,
+  JavaScript: SiJavascript,
+  React: SiReact,
+  "Next.js": SiNextdotjs,
+  "Node.js": SiNodedotjs,
+  "Tailwind CSS": SiTailwindcss,
+  PostgreSQL: SiPostgresql,
+  Supabase: SiSupabase,
+  Git: SiGit,
+  GitHub: SiGithub,
+  Vercel: SiVercel,
+}
 
 /**
  * Komponen yang menampilkan konten profil pengguna
@@ -35,57 +54,49 @@ export function KontenProfil() {
   const sections = getSectionTitles()
   const buttons = getNavigationButtons()
 
+  // Ambil groupedSkills dari profile.json
+  const groupedSkills = (typeof window === 'undefined' ? require('@/app/data/profile.json').groupedSkills : undefined) || {};
+
   return (
     <div className="space-y-8">
+      {/* About Me */}
       <Card className="bg-main-secondary border border-main-border">
         <CardHeader>
           <CardTitle className="text-main-text">{sections.aboutMe}</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-main-text-2 mb-4">{aboutText}</p>
+          <p className="text-main-text-2 mb-4" style={{ whiteSpace: 'pre-line' }}>{aboutText}</p>
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-        {projects.map((project, index) => (
-          <Card key={index} className="bg-main-secondary border border-main-border">
-            <div className="aspect-square relative">
-              <Image
-                src="/placeholder.svg?height=200&width=200"
-                alt={project.title}
-                fill
-                className="object-cover rounded-t-none"
-              />
-            </div>
-            <CardContent className="p-3 sm:p-4">
-              <h3 className="font-medium text-xs sm:text-sm text-main-text">{project.title}</h3>
-              <p className="text-main-text-third text-xs mt-1">{project.category}</p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-
-      <div className="text-center">
-        <Button variant="link" className="text-main-text-third">
-          Lihat semua proyek
-        </Button>
-      </div>
-
+      {/* Skills */}
       <Card className="bg-main-secondary border border-main-border">
         <CardHeader>
           <CardTitle className="text-main-text">{sections.skills}</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex flex-wrap gap-2">
-            {skills.map((skill) => (
-              <Badge key={skill} variant="outline" className="text-sm text-main-text-2 border-main-border">
-                {skill}
-              </Badge>
+          <div className="space-y-4">
+            {Object.entries(groupedSkills).map(([group, skills]) => (
+              <div key={group}>
+                <div className="font-semibold text-xs text-main-text-third mb-2">{group}</div>
+                <div className="flex flex-wrap gap-2">
+                  {(skills as string[]).filter(skill => skillIcons[skill]).map((skill) => {
+                    const Icon = skillIcons[skill];
+                    return (
+                      <Badge key={skill} variant="outline" className="text-sm text-main-text-2 border-main-border flex items-center gap-1">
+                        {Icon && React.createElement(Icon, { className: "w-4 h-4" })}
+                        <span>{skill}</span>
+                      </Badge>
+                    );
+                  })}
+                </div>
+              </div>
             ))}
           </div>
         </CardContent>
       </Card>
 
+      {/* Experience */}
       <Card className="bg-main-secondary border border-main-border">
         <CardHeader>
           <CardTitle className="text-main-text">{sections.experience}</CardTitle>
@@ -107,6 +118,32 @@ export function KontenProfil() {
           ))}
         </CardContent>
       </Card>
+
+      {/* Projects */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+        {projects.map((project, index) => (
+          <Card key={index} className="bg-main-secondary border border-main-border">
+            <div className="aspect-square relative">
+              <Image
+                src="/placeholder.svg?height=200&width=200"
+                alt={project.title}
+                fill
+                className="object-cover rounded-t-none"
+              />
+            </div>
+            <CardContent className="p-3 sm:p-4">
+              <h3 className="font-medium text-xs sm:text-sm text-main-text">{project.title}</h3>
+              <p className="text-main-text-third text-xs mt-1">{project.category}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      <div className="text-center">
+        <Button variant="link" className="text-main-text-third">
+           View all projects
+        </Button>
+      </div>
     </div>
   )
 }

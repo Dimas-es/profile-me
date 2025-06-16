@@ -1,36 +1,38 @@
 {
   "name": "Dimas Adijaya",
   "title": "Web Developer",
-  "education": "Informatics Student • University of Siliwangi",
-  "about": "Berpikiran seni, visioner kreatif, fokus pada desain, pembuat konten digital yang bersemangat tentang desain, fotografi, storytelling, kewirausahaan, branding, pemasaran, teknologi.",
+  "education": "Informatics Student • Universitas Siliwangi",
+  "about": "Hello! 👋🏼\n\nI'm Dimas Setiawan, an Informatics Engineering student at Universitas Siliwangi, Tasikmalaya, Indonesia. I am passionate about web development, focusing on both frontend and backend technologies. I enjoy building clean, efficient, and functional digital products. I value clarity, simplicity, and continuous improvement, and I am always eager to learn and grow in the ever-evolving tech industry.",
   "experience": [
     {
       "title": "Backend Developer",
       "company": "Devix",
-      "period": "Februari 2025 - Sekarang",
+      "period": "February 2025 - Present",
       "location": "Tasikmalaya",
-      "description": "Membuat konten digital dan mengembangkan visi merek dalam startup elektronik konsumen yang berkembang pesat."
+      "description": "Developing robust APIs and backend logic to support digital products for a fast-growing consumer electronics startup. Collaborate with cross-functional teams to deliver scalable and maintainable solutions."
     },
     {
-      "title": "Desainer & Fotografer",
-      "company": "Pemilik",
-      "period": "Maret 2012 - Sekarang",
-      "description": "Fotografer, desainer, dan ilustrator freelance."
+      "title": "Freelance Web Developer",
+      "company": "Self-employed",
+      "period": "2023 - Present",
+      "location": "Remote",
+      "description": "Designing and managing websites for local clients, with a focus on modern technologies such as React, Next.js, and Tailwind CSS. Delivering user-friendly and responsive web solutions tailored to client needs."
     }
   ],
-  "skills": [
-    "Photoshop",
-    "Illustrator",
-    "InDesign",
-    "After Effects",
-    "Sketch",
-    "Invision",
-    "Keynote",
-    "Web Design",
-    "UI Design",
-    "UX Design",
-    "Photography",
-    "Illustration"
-  ],
-  "sidebarSkills": ["Photoshop", "Illustrator", "InDesign", "Visual Design", "Sketch", "UX Design", "UI Design"]
-} 
+  "groupedSkills": {
+    "Languages": ["HTML5", "CSS3", "JavaScript"],
+    "Frameworks & Libraries": ["React", "Next.js", "Node.js", "Tailwind CSS", "shadcn/ui"],
+    "Databases": ["PostgreSQL", "Neon"],
+    "Cloud & Backend Services": ["Supabase"],
+    "DevOps & Deployment": ["Git", "GitHub", "Vercel"]
+  },
+  "sidebarSkills": [
+    "JavaScript",
+    "React",
+    "Next.js",
+    "Tailwind CSS",
+    "Node.js",
+    "Git",
+    "Supabase"
+  ]
+}

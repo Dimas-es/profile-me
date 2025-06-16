@@ -12,7 +12,7 @@ import {
   getProfileEducation,
   getNavigationButtons,
 } from "@/app/utils/data-utils"
-import { Download, UserPlus } from "lucide-react"
+import { Download, UserPlus, Code, Building } from "lucide-react"
 
 /**
  * Komponen header utama yang menampilkan profil
@@ -34,7 +34,7 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
   const buttons = getNavigationButtons()
 
   return (
-    <div className="bg-main-secondary border border-main-border rounded-none shadow-sm overflow-hidden">
+    <div className="bg-main-primary border border-main-border rounded-none shadow-sm overflow-hidden">
       {/* Bagian Gambar Latar Belakang */}
       <div className="relative h-24 sm:h-32 md:h-44">
         <div
@@ -59,8 +59,14 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
         {/* Info profil - Tengah di mobile */}
         <div className="flex-1 text-center sm:text-left sm:pl-32 md:pl-40 pt-0 sm:pt-6 md:pt-8">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold text-main-text">{profileName}</h1>
-          <p className="text-main-text-2 mt-1 sm:mt-2 text-sm sm:text-base md:text-lg">{profileTitle}</p>
-          <p className="text-main-text-third text-xs sm:text-sm md:text-base mt-1">{profileEducation}</p>
+          <p className="text-main-text-2 mt-1 sm:mt-2 text-sm sm:text-base md:text-lg flex items-center justify-center sm:justify-start gap-1">
+            <Code className="w-4 h-4 inline-block mr-1" />
+            {profileTitle}
+          </p>
+          <p className="text-main-text-third text-xs sm:text-sm md:text-base mt-1 flex items-center justify-center sm:justify-start gap-1">
+            <Building className="w-4 h-4 inline-block mr-1" />
+            {profileEducation}
+          </p>
         </div>
 
         {/* Tombol aksi */}
