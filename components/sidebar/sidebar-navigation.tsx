@@ -26,7 +26,7 @@ interface SidebarNavigationProps {
  * ```
  */
 export function SidebarNavigation({ activeTab }: SidebarNavigationProps) {
-  const tabs = getNavigationTabs()
+  const navigation = getNavigationTabs()
   const contact = getSidebarContact()
 
   const getNavIcon = (id: string) => {
@@ -45,10 +45,11 @@ export function SidebarNavigation({ activeTab }: SidebarNavigationProps) {
   }
 
   return (
-    <div className="flex flex-col border-r-2 border-main-border h-full">
+    <div className="flex flex-col border-main-border h-full">
       {/* Navigation Section */}
       <nav className="flex flex-col">
-        {tabs.map((tab) => (
+        <h2 className="px-4 text-sm font-medium text-main-text mb-2">{navigation.title}</h2>
+        {navigation.tabs.map((tab) => (
           <Link
             key={tab.id}
             href={tab.href}

@@ -60,11 +60,11 @@ export function GridProyek() {
             </div>
             <CardContent className="p-3 sm:p-4 md:p-5">
               <Link href={`/project/${project.id}`}>
-                <h3 className="font-semibold text-base sm:text-lg hover:text-main-text-secondary transition-colors text-main-text">
+                <h3 className="font-semibold text-base sm:text-lg transition-colors text-main-text">
                   {project.title}
                 </h3>
               </Link>
-              <p className="text-main-text-secondary text-xs sm:text-sm font-medium mt-1">{project.category}</p>
+              <p className="text-main-text-third text-xs sm:text-sm font-medium mt-1">{project.category}</p>
               <p className="text-main-text-2 text-xs sm:text-sm mt-2 line-clamp-3">{project.description}</p>
               <div className="flex flex-wrap gap-1 sm:gap-2 mt-2 sm:mt-3">
                 {project.tags.map((tag) => (
@@ -111,7 +111,7 @@ export function GridProyek() {
               </div>
               <CardContent className="p-3 sm:p-4 md:p-5">
                 <h3 className="font-semibold text-sm sm:text-base md:text-lg text-main-text">{project.title}</h3>
-                <p className="text-main-text-secondary text-xs sm:text-sm font-medium mt-1">
+                <p className="text-main-text-third text-xs sm:text-sm font-medium mt-1">
                   {headings.projectRole}: {project.role}
                 </p>
                 <p className="text-main-text-2 text-xs sm:text-sm mt-2">{project.description}</p>

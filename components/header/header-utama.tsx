@@ -12,6 +12,7 @@ import {
   getProfileEducation,
   getNavigationButtons,
 } from "@/app/utils/data-utils"
+import { Download, UserPlus } from "lucide-react"
 
 /**
  * Komponen header utama yang menampilkan profil
@@ -64,15 +65,21 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
 
         {/* Tombol aksi */}
         <div className="flex gap-2 sm:gap-3 pt-2 sm:pt-6 md:pt-8">
-          <Button size="responsive" className="bg-main-button hover:bg-main-button-hover text-main-text rounded-none">
-            {buttons.message}
+          <Button
+            variant="outline"
+            size="responsive"
+            className="bg-main-button-secondary border border-main-border text-main-text rounded-none flex items-center gap-2"
+          >
+            <UserPlus className="w-4 h-4" />
+            Connect
           </Button>
           <Button
             variant="outline"
             size="responsive"
-            className="bg-main-button-secondary border border-main-border text-main-text rounded-none"
+            className="bg-main-button-secondary border border-main-border text-main-text rounded-none flex items-center gap-2"
           >
-            {buttons.more}
+            <Download className="w-4 h-4" />
+            Resume
           </Button>
         </div>
       </div>

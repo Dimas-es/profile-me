@@ -44,7 +44,7 @@ export function DetailProyek({ projectId }: DetailProyekProps) {
     <div className="space-y-8">
       <div className="flex items-center gap-2 text-main-text-third">
         <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4" />
-        <Link href="/projects" className="text-xs sm:text-sm hover:text-main-text-secondary">
+        <Link href="/projects" className="text-xs sm:text-sm">
           {buttons.back}
         </Link>
       </div>
@@ -53,7 +53,7 @@ export function DetailProyek({ projectId }: DetailProyekProps) {
         <div className="space-y-6">
           <div>
             <h1 className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2 text-main-text">{featuredProject.title}</h1>
-            <p className="text-main-text-secondary font-medium text-sm">{featuredProject.category}</p>
+            <p className="text-main-text-third font-medium text-sm">{featuredProject.category}</p>
           </div>
 
           <div className="prose max-w-none">
@@ -132,7 +132,7 @@ export function DetailProyek({ projectId }: DetailProyekProps) {
               </div>
               <CardContent className="p-3 sm:p-4">
                 <h3 className="font-semibold text-base sm:text-lg text-main-text">{project.title}</h3>
-                <p className="text-main-text-secondary text-xs sm:text-sm font-medium mt-1">{project.category}</p>
+                <p className="text-main-text-third text-xs sm:text-sm font-medium mt-1">{project.category}</p>
                 <p className="text-main-text-2 text-xs sm:text-sm mt-1 sm:mt-2 line-clamp-3">{project.description}</p>
                 <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-2 sm:mt-3">
                   {project.tags.map((tag) => (

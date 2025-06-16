@@ -59,14 +59,14 @@ export function KontenProfil() {
             </div>
             <CardContent className="p-3 sm:p-4">
               <h3 className="font-medium text-xs sm:text-sm text-main-text">{project.title}</h3>
-              <p className="text-main-text-secondary text-xs mt-1">{project.category}</p>
+              <p className="text-main-text-third text-xs mt-1">{project.category}</p>
             </CardContent>
           </Card>
         ))}
       </div>
 
       <div className="text-center">
-        <Button variant="link" className="text-main-text-secondary">
+        <Button variant="link" className="text-main-text-third">
           Lihat semua proyek
         </Button>
       </div>

@@ -16,7 +16,7 @@ export const getProfileSkills = () => data.profile.skills
 export const getSidebarSkills = () => data.profile.sidebarSkills
 
 // Navigation data
-export const getNavigationTabs = () => data.navigation.tabs
+export const getNavigationTabs = () => data.navigation
 export const getNavigationButtons = () => data.navigation.buttons
 
 // Projects data
