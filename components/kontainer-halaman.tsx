@@ -1,4 +1,4 @@
-import type { KontainerHalamanProps } from "@/types/komponen"
+import type { KontainerHalamanProps } from "@/types"
 
 /**
  * Komponen kontainer halaman yang membungkus konten dengan styling konsisten

@@ -7,7 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Search } from "lucide-react"
-import type { KoneksiMutual } from "@/types/komponen"
+import type { KoneksiMutual } from "@/types"
 import {
   getConnectionsTitle,
   getMutualConnections,

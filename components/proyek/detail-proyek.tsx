@@ -11,7 +11,7 @@ import { ChevronLeft, Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import Image from "next/image"
 import Link from "next/link"
-import type { DetailProyekProps } from "@/types/komponen"
+import type { DetailProyekProps } from "@/types"
 import {
   getFeaturedProject,
   getMoreProjects,
