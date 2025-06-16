@@ -55,6 +55,9 @@ function LayoutUtamaBase({ children, activeTab }: MainLayoutProps) {
           </div>
 
           <div className="flex items-center gap-2">
+            <div className="hidden sm:inline-flex">
+              <ThemeToggle />
+            </div>
             {/* Mobile Menu Component */}
             <MobileMenu showSkills={showSkills} activeTab={activeTab} />
           </div>

@@ -48,7 +48,7 @@ export function SidebarNavigation({ activeTab }: SidebarNavigationProps) {
     <div className="flex flex-col border-main-border h-full">
       {/* Navigation Section */}
       <nav className="flex flex-col">
-        <h2 className="px-4 text-sm font-medium text-main-text mb-2">{navigation.title}</h2>
+        <h2 className="px-4 text-base font-medium text-main-text mb-2">{navigation.title}</h2>
         {navigation.tabs.map((tab) => (
           <Link
             key={tab.id}
@@ -68,7 +68,7 @@ export function SidebarNavigation({ activeTab }: SidebarNavigationProps) {
 
       {/* Contact Section */}
       <div className="mt-4 border-t border-main-border pt-4">
-        <h2 className="px-4 text-sm font-medium text-main-text mb-2">{contact.title}</h2>
+        <h2 className="px-4 text-base font-medium text-main-text mb-2">{contact.title}</h2>
         <div className="flex flex-col">
           {/* Ordered keys for contact links */}
           {[

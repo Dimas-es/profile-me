@@ -1,6 +1,6 @@
 /**
- * @fileoverview Komponen konten profil untuk menampilkan informasi profil pengguna
- * @author Tim Pengembang
+ * @fileoverview Profile content component for displaying user profile information
+ * @author Development Team
  */
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -16,30 +16,30 @@ import {
   getNavigationButtons,
 } from "@/app/utils/data-utils"
 import { SiHtml5, SiCss3, SiJavascript, SiReact, SiNextdotjs, SiNodedotjs, SiTailwindcss, SiPostgresql, SiSupabase, SiGit, SiGithub, SiVercel } from "react-icons/si"
-import { IconBaseProps } from "react-icons"
+import type { IconType } from "react-icons"
 import React from "react"
 import type { FC } from "react"
 
-const skillIcons: Record<string, IconType | undefined> = {
-  HTML5: SiHtml5,
-  CSS3: SiCss3,
-  JavaScript: SiJavascript,
-  React: SiReact,
-  "Next.js": SiNextdotjs,
-  "Node.js": SiNodedotjs,
-  "Tailwind CSS": SiTailwindcss,
-  PostgreSQL: SiPostgresql,
-  Supabase: SiSupabase,
-  Git: SiGit,
-  GitHub: SiGithub,
-  Vercel: SiVercel,
+const skillIcons: Record<string, { icon: IconType; color?: string } | undefined> = {
+  HTML5: { icon: SiHtml5, color: "#E34F26" },
+  CSS3: { icon: SiCss3, color: "#1572B6" },
+  JavaScript: { icon: SiJavascript, color: "#F7DF1E" },
+  React: { icon: SiReact, color: "#61DAFB" },
+  "Next.js": { icon: SiNextdotjs },
+  "Node.js": { icon: SiNodedotjs, color: "#339933" },
+  "Tailwind CSS": { icon: SiTailwindcss, color: "#06B6D4" },
+  PostgreSQL: { icon: SiPostgresql, color: "#336791" },
+  Supabase: { icon: SiSupabase, color: "#3ECF8E" },
+  Git: { icon: SiGit, color: "#F05032" },
+  GitHub: { icon: SiGithub },
+  Vercel: { icon: SiVercel, color: "#000000" },
 }
 
 /**
- * Komponen yang menampilkan konten profil pengguna
+ * Component that displays user profile content
  *
  * @component
- * @returns {JSX.Element} Komponen konten profil
+ * @returns {JSX.Element} Profile content component
  *
  * @example
  * ```tsx
@@ -61,7 +61,7 @@ export function KontenProfil() {
     <div className="space-y-8">
       {/* About Me */}
       <Card className="bg-main-secondary border border-main-border">
-        <CardHeader>
+        <CardHeader className="border-b border-main-border">
           <CardTitle className="text-main-text">{sections.aboutMe}</CardTitle>
         </CardHeader>
         <CardContent>
@@ -71,7 +71,7 @@ export function KontenProfil() {
 
       {/* Skills */}
       <Card className="bg-main-secondary border border-main-border">
-        <CardHeader>
+        <CardHeader className="border-b border-main-border">
           <CardTitle className="text-main-text">{sections.skills}</CardTitle>
         </CardHeader>
         <CardContent>
@@ -81,10 +81,12 @@ export function KontenProfil() {
                 <div className="font-semibold text-xs text-main-text-third mb-2">{group}</div>
                 <div className="flex flex-wrap gap-2">
                   {(skills as string[]).filter(skill => skillIcons[skill]).map((skill) => {
-                    const Icon = skillIcons[skill];
+                    const skillData = skillIcons[skill];
+                    if (!skillData) return null;
+                    const { icon: Icon, color } = skillData;
                     return (
                       <Badge key={skill} variant="outline" className="text-sm text-main-text-2 border-main-border flex items-center gap-1">
-                        {Icon && React.createElement(Icon, { className: "w-4 h-4" })}
+                        {Icon && React.createElement(Icon, color ? { className: "w-4 h-4", color } : { className: "w-4 h-4" })}
                         <span>{skill}</span>
                       </Badge>
                     );
@@ -98,7 +100,7 @@ export function KontenProfil() {
 
       {/* Experience */}
       <Card className="bg-main-secondary border border-main-border">
-        <CardHeader>
+        <CardHeader className="border-b border-main-border">
           <CardTitle className="text-main-text">{sections.experience}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4 sm:space-y-6">
@@ -141,7 +143,7 @@ export function KontenProfil() {
 
       <div className="text-center">
         <Button variant="link" className="text-main-text-third">
-           View all projects
+          View all projects
         </Button>
       </div>
     </div>

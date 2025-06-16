@@ -13,7 +13,8 @@
 
     /* Main theme colors - light mode */
     --main-primary: 0 0% 100%;
-    --main-secondary: 0 0% 96.1%;
+    --main-secondary: 0 0% 98.3%;
+    --main-secondary-navbar: 0 0% 96.3%;
     --main-border: 0 0% 89.8%;
     --main-button: 128 60% 33%;
     --main-button-hover: 128 60% 38%;

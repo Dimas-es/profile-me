@@ -11,8 +11,8 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "Profile Me",
-  description: "Your professional profile",
+  title: "Dimas Adijaya - Web Developer",
+  description: "Professional profile of Dimas Adijaya - Web Developer",
 }
 
 export default function RootLayout({

@@ -52,7 +52,7 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
         >
           <Avatar className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 border-4 border-white rounded-full shadow-lg bg-white">
             <AvatarImage src="/placeholder.svg?height=160&width=160" alt={profileName} />
-            <AvatarFallback>SL</AvatarFallback>
+            <AvatarFallback>DA</AvatarFallback>
           </Avatar>
         </div>
 

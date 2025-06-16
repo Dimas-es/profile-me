@@ -16,5 +16,5 @@ import type { KontainerHalamanProps } from "@/types"
  * ```
  */
 export function KontainerHalaman({ children }: KontainerHalamanProps) {
-  return <div className="bg-main-primary border border-main-border rounded-none shadow-sm p-3 sm:p-6">{children}</div>
+  return <div className="bg-main-primary">{children}</div>
 }
