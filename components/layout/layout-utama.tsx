@@ -35,7 +35,7 @@ function LayoutUtamaBase({ children, activeTab }: MainLayoutProps) {
           <div className="flex items-center gap-3 sm:gap-4 flex-1">
             <Link href="/" className="shrink-0">
               <Image
-                src="/placeholder.svg?height=32&width=32"
+                src="/logoo.png"
                 alt="LinkedIn"
                 width={28}
                 height={28}

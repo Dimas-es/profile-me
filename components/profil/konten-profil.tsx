@@ -103,8 +103,18 @@ export function KontenProfil() {
         <CardContent className="space-y-4 sm:space-y-6">
           {experience.map((exp, index) => (
             <div key={index} className="flex gap-3 sm:gap-4">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-main-primary rounded-none flex items-center justify-center text-main-text font-bold text-sm sm:text-base">
-                {exp.company.charAt(0)}
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-main-primary rounded-none flex items-center justify-center text-main-text font-bold text-sm sm:text-base overflow-hidden">
+                {exp.logo ? (
+                  <Image
+                    src={exp.logo}
+                    alt={exp.company}
+                    width={48}
+                    height={48}
+                    className="object-contain w-full h-full"
+                  />
+                ) : (
+                  exp.company.charAt(0)
+                )}
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-sm sm:text-base text-main-text">{exp.title}</h3>
