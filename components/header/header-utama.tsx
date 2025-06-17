@@ -34,12 +34,12 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
   const buttons = getNavigationButtons()
 
   return (
-    <div className="bg-main-primary border border-main-border rounded-none shadow-sm overflow-hidden">
+    <div className="bg-main-secondary border border-main-border rounded-md shadow-sm overflow-hidden">
       {/* Bagian Gambar Latar Belakang */}
       <div className="relative h-24 sm:h-32 md:h-44">
         <div
           className="absolute left-0 top-0 w-full h-full bg-gray-300"
-          style={{ backgroundImage: "url(/bg-placeholder.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}
+          style={{ backgroundImage: "url(/images/bga.png)", backgroundSize: "cover", backgroundPosition: "center" }}
         />
       </div>
 
@@ -51,7 +51,7 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
           style={{ top: "-40px", left: "50px" }}
         >
           <Avatar className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 border-4 border-white rounded-full shadow-lg bg-white">
-            <AvatarImage src="/placeholder.svg?height=160&width=160" alt={profileName} />
+            <AvatarImage src="/images/Profileq.png" alt={profileName} className="object-cover object-[center_30%]" />
             <AvatarFallback>DA</AvatarFallback>
           </Avatar>
         </div>
@@ -60,11 +60,9 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
         <div className="flex-1 text-center sm:text-left sm:pl-32 md:pl-40 pt-0 sm:pt-6 md:pt-8">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold text-main-text">{profileName}</h1>
           <p className="text-main-text-2 mt-1 sm:mt-2 text-sm sm:text-base md:text-lg flex items-center justify-center sm:justify-start gap-1">
-            <Code className="w-4 h-4 inline-block mr-1" />
             {profileTitle}
           </p>
           <p className="text-main-text-third text-xs sm:text-sm md:text-base mt-1 flex items-center justify-center sm:justify-start gap-1">
-            <Building className="w-4 h-4 inline-block mr-1" />
             {profileEducation}
           </p>
         </div>
@@ -74,7 +72,7 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
           <Button
             variant="outline"
             size="responsive"
-            className="bg-main-button-secondary border border-main-border text-main-text rounded-none flex items-center gap-2"
+            className="bg-main-button hover:bg-main-button-hover border border-main-border text-main-text rounded-md flex items-center gap-2"
           >
             <UserPlus className="w-4 h-4" />
             Connect
@@ -82,7 +80,7 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
           <Button
             variant="outline"
             size="responsive"
-            className="bg-main-button-secondary border border-main-border text-main-text rounded-none flex items-center gap-2"
+            className="bg-main-button-secondary border border-main-border text-main-text rounded-md flex items-center gap-2"
           >
             <Download className="w-4 h-4" />
             Resume

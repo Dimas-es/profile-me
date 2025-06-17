@@ -28,7 +28,7 @@ function LayoutUtamaBase({ children, activeTab }: MainLayoutProps) {
   const isMobile = useMobile()
 
   return (
-    <div className="min-h-screen bg-main-primary">
+    <div className="min-h-screen bg-main-secondary">
       {/* Navigasi Atas - Lebar Penuh dan Sticky */}
       <div className="fixed top-0 left-0 right-0 w-full bg-main-primary border-b border-main-border py-2 sm:py-3 z-50">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between gap-4">
@@ -46,9 +46,9 @@ function LayoutUtamaBase({ children, activeTab }: MainLayoutProps) {
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-main-text-third h-4 w-4" />
                 <Input
-                  type="search"
+                  type="text"
                   placeholder="Cari"
-                  className="bg-main-secondary border border-main-border pl-10 pr-4 py-1 h-8 text-sm"
+                  className="bg-main-secondary border border-main-border pl-10 pr-4 py-1 h-8 text-sm focus:border-main-text-third focus:ring-1 focus:ring-main-text-third transition-colors"
                 />
               </div>
             </div>
@@ -69,7 +69,7 @@ function LayoutUtamaBase({ children, activeTab }: MainLayoutProps) {
 
       {/* Kontainer untuk header */}
       <div className="w-full px-4 py-4 sm:py-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[74rem] mx-auto">
           <HeaderUtama activeTab={activeTab} />
         </div>
       </div>
@@ -79,7 +79,7 @@ function LayoutUtamaBase({ children, activeTab }: MainLayoutProps) {
 
       {/* Kontainer untuk konten */}
       <div className="w-full px-4">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[74rem] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {/* Konten Utama - Lebar penuh di mobile, 3/4 di desktop */}
             <div className="lg:col-span-3 order-2 lg:order-1">{children}</div>

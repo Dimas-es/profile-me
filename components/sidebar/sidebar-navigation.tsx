@@ -6,7 +6,7 @@
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { getNavigationTabs, getSidebarContact } from "@/app/utils/data-utils"
-import { User, Briefcase, Activity, Users, Mail, Instagram, Twitter, Github, Linkedin } from "lucide-react"
+import { User, Briefcase, Activity, Users, Mail, Instagram, Twitter, Github, Linkedin, ExternalLink } from "lucide-react"
 
 interface SidebarNavigationProps {
   activeTab: string
@@ -97,10 +97,13 @@ export function SidebarNavigation({ activeTab }: SidebarNavigationProps) {
                 href={link}
                 target={key === "email" ? undefined : "_blank"}
                 rel={key === "email" ? undefined : "noopener noreferrer"}
-                className="px-4 py-3 text-sm font-medium border-l-3 border-transparent text-main-text-third hover:text-main-text-2 hover:bg-main-secondary/50 transition-colors flex items-center gap-3"
+                className="px-4 py-3 text-sm font-medium border-l-3 border-transparent text-main-text-third hover:text-main-text-2 hover:bg-main-secondary/50 transition-colors flex items-center justify-between gap-3"
               >
-                {iconMap[key]}
-                {display}
+                <span className="flex items-center gap-3">
+                  {iconMap[key]}
+                  {display}
+                </span>
+                <ExternalLink className="w-4 h-4 opacity-70" />
               </a>
             )
           })}

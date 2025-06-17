@@ -16,6 +16,7 @@ import {
   getNavigationButtons,
 } from "@/app/utils/data-utils"
 import { SiHtml5, SiCss3, SiJavascript, SiReact, SiNextdotjs, SiNodedotjs, SiTailwindcss, SiPostgresql, SiSupabase, SiGit, SiGithub, SiVercel } from "react-icons/si"
+import { FaCode, FaHandshake } from "react-icons/fa"
 import type { IconType } from "react-icons"
 import React from "react"
 import type { FC } from "react"
@@ -33,6 +34,11 @@ const skillIcons: Record<string, { icon: IconType; color?: string } | undefined>
   Git: { icon: SiGit, color: "#F05032" },
   GitHub: { icon: SiGithub },
   Vercel: { icon: SiVercel, color: "#000000" },
+}
+
+const specialtyIcons: Record<string, { icon: IconType; color: string }> = {
+  "Web Developer": { icon: FaCode, color: "#1572B6" },
+  "Open to Collaborate": { icon: FaHandshake, color: "#1572B6" },
 }
 
 /**
@@ -65,35 +71,26 @@ export function KontenProfil() {
           <CardTitle className="text-main-text">{sections.aboutMe}</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-main-text-2 mb-4" style={{ whiteSpace: 'pre-line' }}>{aboutText}</p>
-        </CardContent>
-      </Card>
-
-      {/* Skills */}
-      <Card className="bg-main-secondary border border-main-border">
-        <CardHeader className="border-b border-main-border">
-          <CardTitle className="text-main-text">{sections.skills}</CardTitle>
-        </CardHeader>
-        <CardContent>
+          <p className="text-main-text-2 mb-8" style={{ whiteSpace: 'pre-line' }}>
+            {aboutText.split('\n\nMy Specialty:')[0]}
+          </p>
           <div className="space-y-4">
-            {Object.entries(groupedSkills).map(([group, skills]) => (
-              <div key={group}>
-                <div className="font-semibold text-xs text-main-text-third mb-2">{group}</div>
-                <div className="flex flex-wrap gap-2">
-                  {(skills as string[]).filter(skill => skillIcons[skill]).map((skill) => {
-                    const skillData = skillIcons[skill];
-                    if (!skillData) return null;
-                    const { icon: Icon, color } = skillData;
-                    return (
-                      <Badge key={skill} variant="outline" className="text-sm text-main-text-2 border-main-border flex items-center gap-1">
-                        {Icon && React.createElement(Icon, color ? { className: "w-4 h-4", color } : { className: "w-4 h-4" })}
-                        <span>{skill}</span>
-                      </Badge>
-                    );
-                  })}
-                </div>
+            <div>
+              <div className="font-semibold text-xs text-main-text-third mb-2">My Specialty</div>
+              <div className="flex flex-wrap gap-2">
+                {aboutText.split('\n\nMy Specialty:')[1]?.split('\n').filter(Boolean).map((specialty) => {
+                  const specialtyData = specialtyIcons[specialty];
+                  if (!specialtyData) return null;
+                  const { icon: Icon, color } = specialtyData;
+                  return (
+                    <Badge key={specialty} variant="outline" className="text-sm font-normal text-main-text-2 border-main-border flex items-center gap-1 hover:bg-main-primary cursor-pointer">
+                      {Icon && <Icon className="w-4 h-4" color={color} />}
+                      <span>{specialty}</span>
+                    </Badge>
+                  );
+                })}
               </div>
-            ))}
+            </div>
           </div>
         </CardContent>
       </Card>
@@ -118,6 +115,35 @@ export function KontenProfil() {
               </div>
             </div>
           ))}
+        </CardContent>
+      </Card>
+
+      {/* Skills */}
+      <Card className="bg-main-secondary border border-main-border">
+        <CardHeader className="border-b border-main-border">
+          <CardTitle className="text-main-text">{sections.skills}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-6">
+            {Object.entries(groupedSkills).map(([group, skills]) => (
+              <div key={group}>
+                <div className="font-semibold text-xs text-main-text-third mb-2">{group}</div>
+                <div className="flex flex-wrap gap-2">
+                  {(skills as string[]).filter(skill => skillIcons[skill]).map((skill) => {
+                    const skillData = skillIcons[skill];
+                    if (!skillData) return null;
+                    const { icon: Icon, color } = skillData;
+                    return (
+                      <Badge key={skill} variant="outline" className="text-sm font-normal text-main-text-2 border-main-border flex items-center gap-1 hover:bg-main-primary cursor-pointer">
+                        {Icon && React.createElement(Icon, color ? { className: "w-4 h-4", color } : { className: "w-4 h-4" })}
+                        <span>{skill}</span>
+                      </Badge>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
         </CardContent>
       </Card>
 
