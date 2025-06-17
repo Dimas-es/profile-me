@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next"
 import { geist, systemFont } from "./fonts"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { QueryProvider } from "@/components/providers/query-provider"
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -11,8 +12,8 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "Dimas Adijaya - Web Developer",
-  description: "Professional profile of Dimas Adijaya - Web Developer",
+  title: "Dimas Adijaya",
+  description: "Personal website of Dimas Adijaya",
 }
 
 export default function RootLayout({
@@ -26,14 +27,16 @@ export default function RootLayout({
         <meta name="theme-color" content="#000000" />
       </head>
       <body className="font-geist">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <QueryProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </QueryProvider>
       </body>
     </html>
   )

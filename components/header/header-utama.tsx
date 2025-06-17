@@ -13,6 +13,7 @@ import {
   getNavigationButtons,
 } from "@/app/utils/data-utils"
 import { Download, UserPlus, Code, Building } from "lucide-react"
+import { GitHubContributionBG } from "@/components/github/github-contribution-bg"
 
 /**
  * Komponen header utama yang menampilkan profil
@@ -37,10 +38,11 @@ export function HeaderUtama({ activeTab }: HeaderUtamaProps) {
     <div className="bg-main-secondary border border-main-border rounded-md shadow-sm overflow-hidden">
       {/* Bagian Gambar Latar Belakang */}
       <div className="relative h-24 sm:h-32 md:h-44">
-        <div
-          className="absolute left-0 top-0 w-full h-full bg-gray-300"
-          style={{ backgroundImage: "url(/images/bga.png)", backgroundSize: "cover", backgroundPosition: "center" }}
-        />
+        <div className="absolute left-0 top-0 w-full h-full">
+          <GitHubContributionBG />
+        </div>
+        {/* Overlay gradient untuk memastikan teks tetap terbaca */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/50" />
       </div>
 
       {/* Bagian Header Profil */}
