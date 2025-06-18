@@ -1,3 +1,4 @@
- {
-  "outputDirectory": "out"
-}
+  {
+    "buildCommand": "next build && next export",
+    "outputDirectory": "out"
+  }
