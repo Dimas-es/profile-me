@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Dimas Adijaya - Web Developer',
     description: 'Professional profile of Dimas Adijaya - Web Developer',
-    images: ['https://dimasadjy.vercel.app/og-image.jpg'], // You should add this image
+    images: ['https://dimasadjy.vercel.app/logoo.png'], // You should add this image
     creator: '@dimasadjy' // Add your Twitter handle if you have one
   },
   robots: {

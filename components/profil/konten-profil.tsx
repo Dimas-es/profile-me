@@ -231,33 +231,45 @@ export function KontenProfil() {
       </Card>
 
       {/* Projects */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-        {projects.map((project, index) => (
-          <Card key={index} className="bg-main-secondary border border-main-border">
-            <div className="aspect-square relative">
-              <Image
-                src="/placeholder.svg?height=200&width=200"
-                alt={project.title}
-                fill
-                className="object-cover rounded-t-none"
-              />
-            </div>
-            <CardContent className="p-3 sm:p-4">
-              <h3 className="font-medium text-xs sm:text-sm text-main-text">{project.title}</h3>
-              <p className="text-main-text-third text-xs mt-1">{project.category}</p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-
-      <div className="text-center">
-        <Button variant="link" className="text-main-text-third group">
-          <span className="flex items-center gap-2">
-            View all projects
-            <IconWrapper icon={FaArrowRight} className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-          </span>
-        </Button>
-      </div>
+      <Card className="bg-main-secondary border border-main-border">
+        <CardHeader className="border-b border-main-border">
+          <CardTitle className="text-main-text">Projects</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            {projects.map((project, index) => (
+              <Card
+                key={index}
+                className="overflow-hidden hover:shadow-lg transition-shadow bg-main-secondary border border-main-border"
+              >
+                <div className="aspect-video relative">
+                  <Image
+                    src="/placeholder.svg?height=200&width=300"
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <CardContent className="p-3 sm:p-4 md:p-5">
+                  <h3 className="font-semibold text-base sm:text-lg transition-colors text-main-text">
+                    {project.title}
+                  </h3>
+                  <p className="text-main-text-third text-xs sm:text-sm font-medium mt-1">{project.category}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          <div className="text-center mt-6">
+            <Button variant="link" className="text-main-text-third group">
+              <span className="flex items-center gap-2">
+                View all projects
+                <IconWrapper icon={FaArrowRight} className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   )
 }
