@@ -1,6 +1,14 @@
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
 /**
- * Utility functions for responsive design
+ * Utility functions for responsive design and styling
  */
+
+// Styling utilities
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
 
 // Breakpoint values in pixels
 export const breakpoints = {

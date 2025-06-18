@@ -4,7 +4,7 @@
  */
 
 import Link from "next/link"
-import { cn } from "@/lib/utils"
+import { cn } from "@/utils/responsive-utils"
 import { getNavigationTabs, getSidebarContact } from "@/app/utils/data-utils"
 import { User, Briefcase, Activity, Users, Mail, Instagram, Twitter, Github, Linkedin, ExternalLink } from "lucide-react"
 
