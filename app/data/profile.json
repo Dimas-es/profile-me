@@ -17,7 +17,31 @@
       "company": "Self-employed",
       "period": "2023 - Present",
       "location": "Remote",
-      "description": "Designing and managing websites for local clients, with a focus on modern technologies such as React, Next.js, and Tailwind CSS. Delivering user-friendly and responsive web solutions tailored to client needs."
+      "description": "Designing and managing websites for local clients, with a focus on modern technologies such as React, Next.js, and Tailwind CSS. Delivering user-friendly and responsive web solutions tailored to client needs.",
+      "logo": "/logoo.png"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "CSS Course Certification",
+      "issuer": "Sololearn",
+      "period": "March 2025 - No Expiration",
+      "logo": "/Sololearn.png",
+      "url": "https://www.sololearn.com/certificates/CC-8TUYXALT"
+    },
+    {
+      "title": "HTML Course Certification",
+      "issuer": "Sololearn",
+      "period": "March 2025 - No Expiration",
+      "logo": "/Sololearn.png",
+      "url": "https://www.sololearn.com/certificates/CC-OFVEMT68"
+    },
+    {
+      "title": "MikroTik Certified Network Associate",
+      "issuer": "MikroTik",
+      "period": "May 2025 - No Expiration",
+      "logo": "/mikrotik.png",
+      "url": "https://mikrotik.com/training/certificates/c465205c8af4fc24768b"
     }
   ],
   "groupedSkills": {

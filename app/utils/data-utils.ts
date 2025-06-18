@@ -80,3 +80,7 @@ export const getContentStructure = () => {
     pages: Object.keys(data.pages),
   }
 }
+
+export function getProfileCertifications() {
+  return (typeof window === 'undefined' ? require('@/app/data/profile.json').certifications : undefined) || [];
+}

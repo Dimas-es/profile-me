@@ -14,9 +14,10 @@ import {
   getProfileProjects,
   getSectionTitles,
   getNavigationButtons,
+  getProfileCertifications,
 } from "@/app/utils/data-utils"
 import { SiHtml5, SiCss3, SiJavascript, SiReact, SiNextdotjs, SiNodedotjs, SiTailwindcss, SiPostgresql, SiSupabase, SiGit, SiGithub, SiVercel } from "react-icons/si"
-import { FaCode, FaHandshake } from "react-icons/fa"
+import { FaCode, FaHandshake, FaAward, FaExternalLinkAlt, FaArrowRight } from "react-icons/fa"
 import type { IconType } from "react-icons"
 import React from "react"
 import type { FC } from "react"
@@ -41,6 +42,23 @@ const specialtyIcons: Record<string, { icon: IconType; color: string }> = {
   "Open to Collaborate": { icon: FaHandshake, color: "#1572B6" },
 }
 
+const certificationIcons: Record<string, { icon: IconType; color: string }> = {
+  "Sololearn": { icon: FaAward, color: "#149EF2" },
+}
+
+interface Certification {
+  title: string;
+  issuer: string;
+  period: string;
+  logo?: string;
+  url?: string;
+}
+
+const IconWrapper: FC<{ icon: IconType; className?: string; color?: string }> = ({ icon: Icon, ...props }) => {
+  const IconComponent = Icon as unknown as FC<{ className?: string; color?: string }>;
+  return <IconComponent {...props} />;
+};
+
 /**
  * Component that displays user profile content
  *
@@ -59,6 +77,7 @@ export function KontenProfil() {
   const projects = getProfileProjects()
   const sections = getSectionTitles()
   const buttons = getNavigationButtons()
+  const certifications = getProfileCertifications()
 
   // Ambil groupedSkills dari profile.json
   const groupedSkills = (typeof window === 'undefined' ? require('@/app/data/profile.json').groupedSkills : undefined) || {};
@@ -84,7 +103,7 @@ export function KontenProfil() {
                   const { icon: Icon, color } = specialtyData;
                   return (
                     <Badge key={specialty} variant="outline" className="text-sm font-normal text-main-text-2 border-main-border flex items-center gap-1 hover:bg-main-primary cursor-pointer">
-                      {Icon && <Icon className="w-4 h-4" color={color} />}
+                      <IconWrapper icon={Icon} className="w-4 h-4" color={color} />
                       <span>{specialty}</span>
                     </Badge>
                   );
@@ -128,6 +147,60 @@ export function KontenProfil() {
         </CardContent>
       </Card>
 
+      {/* Certifications */}
+      <Card className="bg-main-secondary border border-main-border">
+        <CardHeader className="border-b border-main-border">
+          <CardTitle className="text-main-text">Certifications</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4 sm:space-y-6">
+          {certifications.map((cert: Certification, index: number) => {
+            const certData = certificationIcons[cert.issuer];
+            return (
+              <div key={index} className="flex gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-main-primary rounded-none flex items-center justify-center text-main-text font-bold text-sm sm:text-base overflow-hidden">
+                  {cert.logo ? (
+                    <Image
+                      src={cert.logo}
+                      alt={cert.issuer}
+                      width={48}
+                      height={48}
+                      className="object-contain w-full h-full"
+                    />
+                  ) : certData ? (
+                    <IconWrapper icon={certData.icon} className="w-6 h-6" color={certData.color} />
+                  ) : (
+                    cert.issuer.charAt(0)
+                  )}
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    {cert.url ? (
+                      <a 
+                        href={cert.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="group flex items-center gap-1"
+                      >
+                        <h3 className="font-semibold text-sm sm:text-base text-main-text group-hover:text-main-text-third transition-colors">
+                          {cert.title}
+                        </h3>
+                        <IconWrapper icon={FaExternalLinkAlt} className="w-3 h-3 text-main-text-third group-hover:text-main-text transition-colors" />
+                      </a>
+                    ) : (
+                      <h3 className="font-semibold text-sm sm:text-base text-main-text">
+                        {cert.title}
+                      </h3>
+                    )}
+                  </div>
+                  <p className="text-main-text-2 text-xs sm:text-sm">{cert.issuer}</p>
+                  <p className="text-main-text-third text-xs sm:text-sm">{cert.period}</p>
+                </div>
+              </div>
+            );
+          })}
+        </CardContent>
+      </Card>
+
       {/* Skills */}
       <Card className="bg-main-secondary border border-main-border">
         <CardHeader className="border-b border-main-border">
@@ -145,7 +218,7 @@ export function KontenProfil() {
                     const { icon: Icon, color } = skillData;
                     return (
                       <Badge key={skill} variant="outline" className="text-sm font-normal text-main-text-2 border-main-border flex items-center gap-1 hover:bg-main-primary cursor-pointer">
-                        {Icon && React.createElement(Icon, color ? { className: "w-4 h-4", color } : { className: "w-4 h-4" })}
+                        <IconWrapper icon={Icon} className="w-4 h-4" color={color} />
                         <span>{skill}</span>
                       </Badge>
                     );
@@ -178,8 +251,11 @@ export function KontenProfil() {
       </div>
 
       <div className="text-center">
-        <Button variant="link" className="text-main-text-third">
-          View all projects
+        <Button variant="link" className="text-main-text-third group">
+          <span className="flex items-center gap-2">
+            View all projects
+            <IconWrapper icon={FaArrowRight} className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+          </span>
         </Button>
       </div>
     </div>
