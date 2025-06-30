@@ -16,29 +16,29 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "Dimas Adijaya - Web Developer",
-  description: "Professional profile of Dimas Adijaya - Web Developer",
+  title: "Dimas Setiawan - Web Developer",
+  description: "Professional profile of Dimas Setiawan - Web Developer",
   metadataBase: new URL('https://dimasadjy.vercel.app'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://dimasadjy.vercel.app',
-    title: 'Dimas Adijaya - Web Developer',
-    description: 'Professional profile of Dimas Adijaya - Web Developer',
-    siteName: 'Dimas Adijaya Portfolio',
+    title: 'Dimas Setiawan - Web Developer',
+    description: 'Professional profile of Dimas Setiawan - Web Developer',
+    siteName: 'Dimas Setiawan Portfolio',
     images: [
       {
         url: 'https://dimasadjy.vercel.app/og-image.jpg', // You should add this image
         width: 1200,
         height: 630,
-        alt: 'Dimas Adijaya - Web Developer'
+        alt: 'Dimas Setiawan - Web Developer'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dimas Adijaya - Web Developer',
-    description: 'Professional profile of Dimas Adijaya - Web Developer',
+    title: 'Dimas Setiawan - Web Developer',
+    description: 'Professional profile of Dimas Setiawan - Web Developer',
     images: ['https://dimasadjy.vercel.app/logoo.png'], // You should add this image
     creator: '@dimasadjy' // Add your Twitter handle if you have one
   },
@@ -79,10 +79,10 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="application-name" content="Dimas Adijaya Portfolio" />
+        <meta name="application-name" content="Dimas Setiawan Portfolio" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Dimas Adijaya" />
+        <meta name="apple-mobile-web-app-title" content="Dimas Setiawan" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
